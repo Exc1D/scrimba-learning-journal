@@ -1,0 +1,43 @@
+/* =============================================================
+   footer.css — Footer Styles
+   ============================================================= */
+
+/* TODO 1: Style the <footer> element.
+   - background-color: var(--bg-dark)
+   - color: #FAFAFA  (light text on dark background)
+   - padding: 2rem var(--gap)
+*/
+footer {
+
+}
+
+/* TODO 2: Style .footer-container for inner layout.
+   Keep it centered and max-width consistent with the nav:
+   - max-width: 1100px
+   - margin: 0 auto
+   - display: flex
+   - justify-content: space-between
+   - align-items: center
+   - flex-wrap: wrap
+   - gap: 1rem
+
+   On mobile (max-width: 768px), switch to:
+   - flex-direction: column
+   - text-align: center
+*/
+.footer-container {
+
+}
+
+/* TODO 3: Style footer links.
+   - color: #ECECEC
+   - text-decoration: none
+   - Add :hover state: color: #FAFAFA
+*/
+footer a {
+
+}
+
+footer a:hover {
+
+}

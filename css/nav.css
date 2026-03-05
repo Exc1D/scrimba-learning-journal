@@ -1,0 +1,67 @@
+/* =============================================================
+   nav.css — Header & Navigation Styles
+   ============================================================= */
+
+/* TODO 1: Style the <header> element.
+   - position: sticky, top: 0
+   - background-color: var(--bg)
+   - border-bottom: 1px solid var(--border)
+   - z-index: 100 (so it stays above content when scrolling)
+*/
+header {
+
+}
+
+/* TODO 2: Style the .nav-container inside the header.
+   Use flexbox to place the logo on the left and nav links on the right.
+   - display: flex
+   - justify-content: space-between
+   - align-items: center
+   - max-width: 1100px
+   - margin: 0 auto
+   - padding: 0 var(--gap)
+   - height: 64px
+*/
+.nav-container {
+
+}
+
+/* TODO 3: Style the .nav-logo (your site name / logo text).
+   - font-weight: 700
+   - color: var(--text-primary)
+   - font-size: 1.25rem
+*/
+.nav-logo {
+
+}
+
+/* TODO 4: Style the <nav> links list (.nav-links).
+   - display: flex, gap: 2rem
+   - list-style: none
+   - The <a> tags inside should be color: var(--text-secondary)
+   - On :hover change color to var(--text-primary)
+*/
+.nav-links {
+
+}
+
+.nav-links a {
+
+}
+
+.nav-links a:hover {
+
+}
+
+/* TODO 5 (STRETCH — Hamburger Menu): On mobile (< 768px),
+   hide the nav links and show a hamburger button instead.
+   The JS in about.js will toggle an .open class to show/hide the menu.
+
+   @media (max-width: 768px) {
+     .nav-links { display: none; }
+     .nav-links.open { display: flex; flex-direction: column; ... }
+     .hamburger { display: block; }
+   }
+
+   Nothing to write here until you reach the hamburger stretch goal.
+*/
