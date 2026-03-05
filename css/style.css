@@ -44,18 +44,13 @@ body {
    - Add underline on :hover
 */
 a {
+  text-decoration: none;
+  color: inherit;
 }
 
 a:hover {
+  text-decoration: underline;
 }
-
-/* TODO 5: Add the Google Fonts <link> to each HTML file's <head>
-   instead of @import here (better performance).
-   Font to use: Inter, weights 400 and 700.
-   URL: https://fonts.google.com/specimen/Inter
-   Hint: copy the <link> tag from Google Fonts into your HTML.
-   Nothing to write in this file for this TODO — see your HTML files.
-*/
 
 /* TODO 6 (STRETCH — Dark Mode): Add a [data-theme="dark"] block
    that overrides the color custom properties for dark mode.
@@ -71,3 +66,11 @@ a:hover {
    Override all 6 color tokens for dark mode:
    --bg, --bg-dark, --text-primary, --text-secondary, --border, --border-light
 */
+[data-theme="dark"] {
+  --bg: #202020;
+  --bg-dark: #141414;
+  --text-primary: #fafafa;
+  --text-secondary: #bfbfbf;
+  --border: #2e2e2e;
+  --border-light: #424242;
+}
