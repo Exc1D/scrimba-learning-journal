@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post — My Learning Journal</title>
+
+  <!-- TODO: Add Google Fonts link (same as index.html) -->
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/post-card.css" />
+</head>
+<body>
+
+  <!-- HEADER: Copy the completed <header> block from index.html once you have filled it in. -->
+  <header>
+    <div class="nav-container">
+      <!-- TODO 1: Paste your nav here (same as index.html TODO 1 and TODO 2) -->
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =====================================================
+         POST HERO IMAGE
+         ===================================================== -->
+    <section class="post-hero">
+      <!-- post.js injects the post's hero <img> into this div. Leave it empty. -->
+      <div id="post-hero-image"></div>
+    </section>
+
+    <!-- =====================================================
+         ARTICLE CONTENT
+         ===================================================== -->
+    <article class="post-article">
+      <div class="post-container">
+
+        <!-- post.js injects the full article here (category tag, title, meta, body paragraphs).
+             Leave this div empty — do not add HTML inside it.
+        -->
+        <div id="post-content"></div>
+
+        <!-- TODO 2 (STRETCH): Add a like button below the article.
+             <button id="like-btn" class="btn btn-like">
+               ♡ Like (<span id="like-count">0</span>)
+             </button>
+             Wire it up in js/post.js (TODO 8 in that file).
+        -->
+
+        <!-- TODO 3 (STRETCH): Reading time is injected by post.js into the post meta.
+             No HTML needed here — it is handled in js/post.js (TODO 9).
+        -->
+
+      </div>
+    </article>
+
+    <!-- =====================================================
+         MORE POSTS SECTION
+         ===================================================== -->
+    <section class="more-posts">
+      <div class="posts-container">
+        <h2>More posts</h2>
+
+        <!-- post.js injects 2–3 related post cards here. Leave this div empty. -->
+        <div id="more-posts-grid" class="posts-grid"></div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER: Copy the completed <footer> block from index.html once you have filled it in. -->
+  <footer>
+    <div class="footer-container">
+      <!-- TODO 4: Paste your footer here (same as index.html TODO 8) -->
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/post.js"></script>
+</body>
+</html>
