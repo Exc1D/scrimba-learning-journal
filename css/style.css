@@ -28,7 +28,13 @@
 
    Hint: *, *::before, *::after { box-sizing: border-box; }
 */
+*, *::before, *::after {
 
+}
+
+img {
+
+}
 
 /* TODO 3: Set base body styles.
    - font-family: var(--font-sans)
@@ -49,11 +55,16 @@ a {
 
 }
 
+a:hover {
+
+}
+
 /* TODO 5: Add the Google Fonts <link> to each HTML file's <head>
    instead of @import here (better performance).
    Font to use: Inter, weights 400 and 700.
    URL: https://fonts.google.com/specimen/Inter
    Hint: copy the <link> tag from Google Fonts into your HTML.
+   Nothing to write in this file for this TODO — see your HTML files.
 */
 
 /* TODO 6 (STRETCH — Dark Mode): Add a [data-theme="dark"] block
@@ -66,4 +77,7 @@ a {
      --text-primary: #FAFAFA;
      ...
    }
+
+   Override all 6 color tokens for dark mode:
+   --bg, --bg-dark, --text-primary, --text-secondary, --border, --border-light
 */
