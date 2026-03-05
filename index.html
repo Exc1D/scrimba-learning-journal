@@ -43,28 +43,10 @@
          HERO SECTION
          ===================================================== -->
       <section class="hero">
-        <!-- TODO 4: Add a full-width hero image.
-           Use an <img> tag with a descriptive alt attribute.
-           Example: <img src="assets/images/hero.jpg" alt="A description of the image" />
-           Tip: Download a free image from https://unsplash.com and save it to assets/images/.
-           The image should be the first (featured) post's image.
-      -->
         <img
           src="assets/images/soldiers-marching.jpg"
           alt="Soldiers in battle uniform marching"
         />
-
-        <!-- TODO 5: Add the hero post preview card (overlays bottom-left on desktop).
-           This is a <div class="hero-card"> containing:
-           - A category tag:  <span class="tag">CSS</span>
-           - The featured post title as an <h1>
-           - A short excerpt or the post date
-           - A "Read more" link: <a href="post.html?slug=YOUR_SLUG" class="btn">Read more</a>
-
-           Replace YOUR_SLUG with the slug of your featured post from data.js.
-           On mobile this card stacks below the image.
-           On desktop it overlays the bottom-left corner of the image (done in CSS).
-      -->
         <div class="hero-card">
           <span class="tag">Life</span>
           <h1>From Soldier in Training to Developer in Training</h1>
@@ -87,6 +69,7 @@
              <input type="text" id="search" placeholder="Search posts..." />
              The filter logic is in js/main.js (TODO 4 in that file).
         -->
+          <input type="text" id="search" placeholder="Search posts..." />
 
           <!-- The post cards are injected here by js/main.js. Leave this div empty. -->
           <div id="posts-grid" class="posts-grid"></div>
@@ -94,7 +77,9 @@
           <!-- TODO 7 (STRETCH): Add a "Load more" button below the grid.
              <button id="load-more" class="btn">Load more posts</button>
              The pagination logic is in js/main.js (TODO 5 in that file).
-        --></div>
+        -->
+          <button id="load-more" class="btn">Load more posts</button>
+        </div>
       </section>
     </main>
 
@@ -103,11 +88,9 @@
        ===================================================== -->
     <footer>
       <div class="footer-container">
-        <!-- TODO 8: Add footer content.
-           Left side — your site name:   <span class="nav-logo">My Journal</span>
-           Right side — copyright:       <p>© 2026 Your Name</p>
-           Replace "Your Name" with your actual name.
-      --></div>
+        <span class="nav-logo">My Journal</span>
+        <p>© 2026 EXXEED</p>
+      </div>
     </footer>
 
     <!-- Scripts loaded at end of <body> so the DOM is ready when they run -->
