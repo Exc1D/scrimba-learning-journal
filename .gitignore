@@ -1,0 +1,14 @@
+# Design assets (large binary files)
+figma-design/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
