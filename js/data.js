@@ -17,8 +17,7 @@ const posts = [
     date: "March 1, 2026",
     author: "Exxeed",
     image: "assets/images/soldiers-marching.jpg",
-    excerpt:
-      "I traded my rifle for a keyboard and a cup of coffee. They didn't teach me these stuff in the Academy.",
+    excerpt: "I traded my rifle for a keyboard and a cup of coffee. ",
     body: [
       "Life doesn't always turn out as you always wanted, learned that the painful way. With a rifle on my shoulder, I used to march the hallowed grounds of the Borromeo Field in the Philippine Military Academy.",
       "Now I am drowning in codes and docs with me and my PC against the world. The shift was hard but it's nothing compared to how hard my life used to be.",
