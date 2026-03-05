@@ -1,0 +1,166 @@
+/* =============================================================
+   post-card.css — Post Card, Grid, Hero & Button Styles
+   ============================================================= */
+
+/* TODO 1: Style .posts-section and .posts-container.
+   .posts-container:
+   - max-width: 1100px
+   - margin: 0 auto
+   - padding: 2rem var(--gap)
+*/
+.posts-section {
+
+}
+
+.posts-container {
+
+}
+
+/* TODO 2: Style .posts-grid using CSS Grid.
+   Use auto-fill with minmax — this is naturally responsive with no media queries:
+
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   gap: var(--gap);
+
+   Result: 1 column on mobile, 2 on tablet, 3 on desktop — automatically.
+*/
+.posts-grid {
+
+}
+
+/* TODO 3: Style .post-card.
+   - background: var(--bg)
+   - border: 1px solid var(--border)
+   - border-radius: var(--radius)
+   - overflow: hidden  ← rounds the image corners too
+   - cursor: pointer
+   Add a box-shadow on :hover and transition it smoothly.
+*/
+.post-card {
+
+}
+
+.post-card:hover {
+
+}
+
+/* TODO 4: Style the card thumbnail image.
+   - width: 100%
+   - aspect-ratio: 16 / 9
+   - object-fit: cover  ← fills space without distorting the image
+*/
+.post-card img {
+
+}
+
+/* TODO 5: Style .card-body (text area below the image).
+   - padding: 1rem
+*/
+.card-body {
+
+}
+
+/* TODO 6: Style .tag (category label e.g. "CSS", "JavaScript").
+   - font-size: 0.75rem
+   - text-transform: uppercase
+   - letter-spacing: 0.05em
+   - color: var(--text-secondary)
+*/
+.tag {
+
+}
+
+/* TODO 7: Style the card title (h3 inside .card-body).
+   - font-size: 1.125rem
+   - margin: 0.5rem 0
+   - color: var(--text-primary)
+*/
+.card-body h3 {
+
+}
+
+/* TODO 8: Style .card-meta row (author + date).
+   - display: flex
+   - align-items: center
+   - gap: 0.5rem
+   - font-size: 0.875rem
+   - color: var(--text-secondary)
+*/
+.card-meta {
+
+}
+
+/* TODO 9: Style the hero section.
+   The hero has a full-width image with a preview card overlaid on desktop.
+
+   .hero:
+   - position: relative
+   - overflow: hidden
+
+   .hero img:
+   - width: 100%
+   - aspect-ratio: 16 / 9
+   - object-fit: cover
+
+   .hero-card:
+   - padding: 1.5rem
+   - background: var(--bg)
+   - border-radius: var(--radius)
+
+   DESKTOP overlay — inside a @media (min-width: 768px) block:
+   .hero-card:
+   - position: absolute
+   - bottom: 2rem
+   - left: 2rem
+   - max-width: 380px
+   (On mobile the card is a normal block below the image — no position needed.)
+*/
+.hero {
+
+}
+
+.hero img {
+
+}
+
+.hero-card {
+
+}
+
+/* TODO 10 (STRETCH): Style the #search input.
+   - width: 100%
+   - padding: 0.75rem
+   - border: 1px solid var(--border)
+   - border-radius: var(--radius)
+   - margin-bottom: var(--gap)
+   - font-family: inherit
+   - font-size: 1rem
+   Add a :focus state: outline removed, border-color changed to var(--text-primary).
+*/
+#search {
+
+}
+
+#search:focus {
+
+}
+
+/* TODO 11 (STRETCH): Style the .btn reusable button class.
+   - display: inline-block
+   - padding: 0.6rem 1.25rem
+   - border: 2px solid var(--text-primary)
+   - background: transparent
+   - color: var(--text-primary)
+   - border-radius: var(--radius)
+   - cursor: pointer
+   - font-family: inherit
+   On :hover: swap background and color (background: var(--text-primary), color: var(--bg)).
+   Add a transition for the swap.
+*/
+.btn {
+
+}
+
+.btn:hover {
+
+}
