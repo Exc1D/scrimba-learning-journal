@@ -2,48 +2,40 @@
    style.css — Global Styles, CSS Custom Properties, Reset
    ============================================================= */
 
-/* TODO 1: Define your CSS custom properties (design tokens) in :root.
-   Use the color palette from the Figma design.
-   Reference: docs/plans/2026-03-05-learning-journal-design.md
+/* CUSTOM PROPERTIES */
 
-   --bg:               #FAFAFA   (page background)
-   --bg-dark:          #202020   (footer background)
-   --text-primary:     #141414   (headings, body text)
-   --text-secondary:   #505050   (meta, captions)
-   --border:           #D7D7D7   (card borders, dividers)
-   --border-light:     #ECECEC   (subtle separators)
-   --font-sans:        'Inter', system-ui, sans-serif
-   --radius:           8px
-   --gap:              1.5rem
-
-   Hint: :root { --bg: #FAFAFA; ... }
-*/
 :root {
-
+  --bg: #fafafa;
+  --bg-dark: #202020;
+  --text-primary: #141414;
+  --text-secondary: #505050;
+  --border: #d7d7d7;
+  --border-light: #ececec;
+  --font-sans: "Inter", sans-serif;
+  --radius: 8px;
+  --gap: 1.5rem;
 }
 
-/* TODO 2: Write a minimal CSS reset.
-   Zero out margin and padding, set box-sizing: border-box on *.
-   Set img to display: block, max-width: 100%.
+/* CSS RESET */
 
-   Hint: *, *::before, *::after { box-sizing: border-box; }
-*/
-*, *::before, *::after {
-
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 img {
-
+  display: block;
+  max-width: 100%;
 }
 
-/* TODO 3: Set base body styles.
-   - font-family: var(--font-sans)
-   - background-color: var(--bg)
-   - color: var(--text-primary)
-   - line-height: 1.6
-*/
 body {
-
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
 }
 
 /* TODO 4: Style anchor tags globally.
@@ -52,11 +44,9 @@ body {
    - Add underline on :hover
 */
 a {
-
 }
 
 a:hover {
-
 }
 
 /* TODO 5: Add the Google Fonts <link> to each HTML file's <head>

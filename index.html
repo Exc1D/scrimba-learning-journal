@@ -1,35 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Learning Journal</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Learning Journal</title>
 
-  <!-- TODO: Replace these commented-out lines with the actual Google Fonts <link> tags for Inter (weights 400, 700).
-       Go to https://fonts.google.com/specimen/Inter, select weights 400 and 700, and copy the <link> snippet. -->
-  <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
-  <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-  <!-- <link href="YOUR_GOOGLE_FONTS_URL_HERE" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/nav.css" />
-  <link rel="stylesheet" href="css/footer.css" />
-  <link rel="stylesheet" href="css/post-card.css" />
-</head>
-<body>
-
-  <!-- =====================================================
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/post-card.css" />
+  </head>
+  <body>
+    <!-- =====================================================
        HEADER / NAV
        ===================================================== -->
-  <header>
-    <div class="nav-container">
-
-      <!-- TODO 1: Add your logo/site name as a link to index.html.
+    <header>
+      <div class="nav-container">
+        <!-- TODO 1: Add your logo/site name as a link to index.html.
            Example: <a href="index.html" class="nav-logo">My Journal</a>
            Replace "My Journal" with your own site name.
       -->
 
-      <!-- TODO 2: Add the navigation links list.
+        <!-- TODO 2: Add the navigation links list.
            Wrap in <nav> with a <ul class="nav-links"> inside.
            Links needed: Home → index.html, About → about.html
            Example:
@@ -41,30 +40,26 @@
            </nav>
       -->
 
-      <!-- TODO 3 (STRETCH): Add a theme toggle button and hamburger icon.
+        <!-- TODO 3 (STRETCH): Add a theme toggle button and hamburger icon.
            <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
            <button class="hamburger" aria-label="Open menu">☰</button>
            Wire these up in a shared js/theme.js file loaded on every page (see the theme toggle hints in js/about.js TODO 1), or add the logic directly to js/main.js for now.
-      -->
+      --></div>
+    </header>
 
-    </div>
-  </header>
-
-  <main>
-
-    <!-- =====================================================
+    <main>
+      <!-- =====================================================
          HERO SECTION
          ===================================================== -->
-    <section class="hero">
-
-      <!-- TODO 4: Add a full-width hero image.
+      <section class="hero">
+        <!-- TODO 4: Add a full-width hero image.
            Use an <img> tag with a descriptive alt attribute.
            Example: <img src="assets/images/hero.jpg" alt="A description of the image" />
            Tip: Download a free image from https://unsplash.com and save it to assets/images/.
            The image should be the first (featured) post's image.
       -->
 
-      <!-- TODO 5: Add the hero post preview card (overlays bottom-left on desktop).
+        <!-- TODO 5: Add the hero post preview card (overlays bottom-left on desktop).
            This is a <div class="hero-card"> containing:
            - A category tag:  <span class="tag">CSS</span>
            - The featured post title as an <h1>
@@ -74,51 +69,42 @@
            Replace YOUR_SLUG with the slug of your featured post from data.js.
            On mobile this card stacks below the image.
            On desktop it overlays the bottom-left corner of the image (done in CSS).
-      -->
+      --></section>
 
-    </section>
-
-    <!-- =====================================================
+      <!-- =====================================================
          POST GRID SECTION
          ===================================================== -->
-    <section class="posts-section">
-      <div class="posts-container">
-
-        <!-- TODO 6 (STRETCH): Add a search/filter input above the grid.
+      <section class="posts-section">
+        <div class="posts-container">
+          <!-- TODO 6 (STRETCH): Add a search/filter input above the grid.
              <input type="text" id="search" placeholder="Search posts..." />
              The filter logic is in js/main.js (TODO 4 in that file).
         -->
 
-        <!-- The post cards are injected here by js/main.js. Leave this div empty. -->
-        <div id="posts-grid" class="posts-grid"></div>
+          <!-- The post cards are injected here by js/main.js. Leave this div empty. -->
+          <div id="posts-grid" class="posts-grid"></div>
 
-        <!-- TODO 7 (STRETCH): Add a "Load more" button below the grid.
+          <!-- TODO 7 (STRETCH): Add a "Load more" button below the grid.
              <button id="load-more" class="btn">Load more posts</button>
              The pagination logic is in js/main.js (TODO 5 in that file).
-        -->
+        --></div>
+      </section>
+    </main>
 
-      </div>
-    </section>
-
-  </main>
-
-  <!-- =====================================================
+    <!-- =====================================================
        FOOTER
        ===================================================== -->
-  <footer>
-    <div class="footer-container">
-
-      <!-- TODO 8: Add footer content.
+    <footer>
+      <div class="footer-container">
+        <!-- TODO 8: Add footer content.
            Left side — your site name:   <span class="nav-logo">My Journal</span>
            Right side — copyright:       <p>© 2026 Your Name</p>
            Replace "Your Name" with your actual name.
-      -->
+      --></div>
+    </footer>
 
-    </div>
-  </footer>
-
-  <!-- Scripts loaded at end of <body> so the DOM is ready when they run -->
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
-</body>
+    <!-- Scripts loaded at end of <body> so the DOM is ready when they run -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
