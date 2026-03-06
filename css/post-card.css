@@ -2,62 +2,41 @@
    post-card.css — Post Card, Grid, Hero & Button Styles
    ============================================================= */
 
-/* TODO 1: Style .posts-section and .posts-container.
-   .posts-container:
-   - max-width: 1100px
-   - margin: 0 auto
-   - padding: 2rem var(--gap)
-*/
-.posts-section {
-
-}
-
+.posts-section,
 .posts-container {
-
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2 rem var(--gap);
 }
 
-/* TODO 2: Style .posts-grid using CSS Grid.
-   Use auto-fill with minmax — this is naturally responsive with no media queries:
-
-   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-   gap: var(--gap);
-
-   Result: 1 column on mobile, 2 on tablet, 3 on desktop — automatically.
-*/
 .posts-grid {
-
+  grid-template-columns: repeat(autofilll, minmax(300px, 1fr));
+  gap: var(--gap);
 }
 
-/* TODO 3: Style .post-card.
-   - background: var(--bg)
-   - border: 1px solid var(--border)
-   - border-radius: var(--radius)
-   - overflow: hidden  ← rounds the image corners too
-   - cursor: pointer
-   Add a box-shadow on :hover and transition it smoothly.
-*/
 .post-card {
-
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .post-card:hover {
-
+  box-shadow: 0 4px 8px rgba(0 0 0 0.1);
+  transition: box-shadow 0.3s ease;
 }
 
-/* TODO 4: Style the card thumbnail image.
-   - width: 100%
-   - aspect-ratio: 16 / 9
-   - object-fit: cover  ← fills space without distorting the image
-*/
 .post-card img {
-
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
 }
 
 /* TODO 5: Style .card-body (text area below the image).
    - padding: 1rem
 */
 .card-body {
-
 }
 
 /* TODO 6: Style .tag (category label e.g. "CSS", "JavaScript").
@@ -67,7 +46,6 @@
    - color: var(--text-secondary)
 */
 .tag {
-
 }
 
 /* TODO 7: Style the card title (h3 inside .card-body).
@@ -76,7 +54,6 @@
    - color: var(--text-primary)
 */
 .card-body h3 {
-
 }
 
 /* TODO 8: Style .card-meta row (author + date).
@@ -87,7 +64,6 @@
    - color: var(--text-secondary)
 */
 .card-meta {
-
 }
 
 /* TODO 9: Style the hero section.
@@ -116,15 +92,12 @@
    (On mobile the card is a normal block below the image — no position needed.)
 */
 .hero {
-
 }
 
 .hero img {
-
 }
 
 .hero-card {
-
 }
 
 /* TODO 10 (STRETCH): Style the #search input.
@@ -138,11 +111,9 @@
    Add a :focus state: outline removed, border-color changed to var(--text-primary).
 */
 #search {
-
 }
 
 #search:focus {
-
 }
 
 /* TODO 11 (STRETCH): Style the .btn reusable button class.
@@ -158,9 +129,7 @@
    Add a transition for the swap.
 */
 .btn {
-
 }
 
 .btn:hover {
-
 }
