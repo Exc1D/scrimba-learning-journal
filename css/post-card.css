@@ -37,6 +37,7 @@
    - padding: 1rem
 */
 .card-body {
+  padding: 1rem;
 }
 
 /* TODO 6: Style .tag (category label e.g. "CSS", "JavaScript").
