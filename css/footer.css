@@ -1,43 +1,107 @@
 /* =============================================================
    footer.css — Footer Styles
+   PRACTICE FILE — implement each TODO to rebuild the design.
    ============================================================= */
 
-/* TODO 1: Style the <footer> element.
-   - background-color: var(--bg-dark)
-   - color: #FAFAFA  (light text on dark background)
-   - padding: 2rem var(--gap)
-*/
+/* -------------------------------------------------------------
+   TODO 1 — FOOTER BASE
+   The footer uses a very dark background to contrast with the
+   rest of the page:
+     - background-color: --bg-dark (near black)
+     - color: rgba(250, 250, 250, 0.85) (soft white, not harsh)
+     - padding: 2.5rem var(--gap)
+     - transition: background-color (for dark/light mode switch)
+------------------------------------------------------------- */
+
 footer {
-
+  /* TODO */
 }
 
-/* TODO 2: Style .footer-container for inner layout.
-   Keep it centered and max-width consistent with the nav:
-   - max-width: 1100px
-   - margin: 0 auto
-   - display: flex
-   - justify-content: space-between
-   - align-items: center
-   - flex-wrap: wrap
-   - gap: 1rem
+/* -------------------------------------------------------------
+   TODO 2 — FOOTER CONTAINER
+   .footer-container lays out logo and copyright side by side:
+     - max-width: 1100px, margin: 0 auto (centered)
+     - display: flex
+     - justify-content: space-between
+     - align-items: center
+     - flex-wrap: wrap (wraps to column on narrow screens)
+     - gap: 1rem
 
-   On mobile (max-width: 768px), switch to:
-   - flex-direction: column
-   - text-align: center
-*/
+   On mobile (max-width: 768px):
+     - flex-direction: column
+     - text-align: center
+------------------------------------------------------------- */
+
 .footer-container {
-
+  /* TODO */
 }
 
-/* TODO 3: Style footer links.
-   - color: #ECECEC
-   - text-decoration: none
-   - Add :hover state: color: #FAFAFA
-*/
-footer a {
+@media (max-width: 768px) {
+  .footer-container {
+    /* TODO */
+  }
+}
 
+/* -------------------------------------------------------------
+   TODO 3 — FOOTER LOGO (letter-spacing animation on hover)
+   The .nav-logo inside the footer needs different colors than
+   the header version, so target it specifically:
+   .footer-container .nav-logo
+
+   Base styles:
+     - font-weight: 700
+     - color: rgba(250, 250, 250, 0.9) (slightly dimmed white)
+     - font-size: 1.05rem
+     - letter-spacing: -0.02em (slightly tight by default)
+     - transition: letter-spacing 0.35s ease, color var(--transition)
+       Note: use a separate easing for letter-spacing — it needs
+       a longer, smoother transition than color.
+
+   Hover "surprise" — the logo stretches:
+     - letter-spacing: 0.06em (expands outward — total swing of 0.08em)
+     - color: #fff (full white)
+
+   This is a simple but memorable interaction: letters physically
+   spread apart like a breath, then contract when you leave.
+------------------------------------------------------------- */
+
+.footer-container .nav-logo {
+  /* TODO */
+}
+
+.footer-container .nav-logo:hover {
+  /* TODO */
+}
+
+/* -------------------------------------------------------------
+   TODO 4 — COPYRIGHT TEXT
+   The copyright paragraph should feel like a timestamp or
+   version number — small and technical:
+     - font-family: --font-mono (monospace feels like metadata)
+     - font-size: 0.7rem
+     - letter-spacing: 0.04em
+     - color: rgba(250, 250, 250, 0.35) (very muted — secondary info)
+------------------------------------------------------------- */
+
+.footer-container p {
+  /* TODO */
+}
+
+/* -------------------------------------------------------------
+   TODO 5 — FOOTER LINKS (if any are added later)
+   Keep link styles consistent with the dark footer background:
+     - color: rgba(250, 250, 250, 0.6) (dimmed white)
+     - text-decoration: none
+     - transition: color
+
+   On hover:
+     - color: rgba(250, 250, 250, 0.95) (near full white)
+------------------------------------------------------------- */
+
+footer a {
+  /* TODO */
 }
 
 footer a:hover {
-
+  /* TODO */
 }

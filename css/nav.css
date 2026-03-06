@@ -1,67 +1,273 @@
 /* =============================================================
    nav.css — Header & Navigation Styles
+   PRACTICE FILE — implement each TODO to rebuild the design.
    ============================================================= */
 
-/* TODO 1: Style the <header> element.
-   - position: sticky, top: 0
-   - background-color: var(--bg)
-   - border-bottom: 1px solid var(--border)
-   - z-index: 100 (so it stays above content when scrolling)
-*/
+/* -------------------------------------------------------------
+   TODO 1 — STICKY FROSTED GLASS HEADER
+   The header should stick to the top of the page as the user
+   scrolls (position: sticky, top: 0).
+
+   Instead of a solid background, use a semi-transparent one
+   combined with a blur effect to create a "frosted glass" look:
+     - background-color: rgba(250, 250, 248, 0.85)
+       (85% opacity — you can see page content through it)
+     - backdrop-filter: blur(16px)
+     - -webkit-backdrop-filter: blur(16px) (Safari prefix)
+     - border-bottom: 1px solid var(--border)
+     - z-index: 100 (above page content, below progress bar)
+     - transition: background-color and border-color using
+       var(--transition) so dark mode switches smoothly
+------------------------------------------------------------- */
+
 header {
-
+  /* TODO */
 }
 
-/* TODO 2: Style the .nav-container inside the header.
-   Use flexbox to place the logo on the left and nav links on the right.
-   - display: flex
-   - justify-content: space-between
-   - align-items: center
-   - max-width: 1100px
-   - margin: 0 auto
-   - padding: 0 var(--gap)
-   - height: 64px
-*/
+/* -------------------------------------------------------------
+   TODO 2 — DARK MODE HEADER
+   When [data-theme="dark"] is active, the light rgba background
+   looks wrong. Override it with the dark equivalent:
+     background-color: rgba(15, 15, 15, 0.85)
+   The blur and border are inherited from above — only the
+   background color needs to change.
+------------------------------------------------------------- */
+
+[data-theme="dark"] header {
+  /* TODO */
+}
+
+/* -------------------------------------------------------------
+   TODO 3 — NAV CONTAINER
+   .nav-container is the inner flex row inside the header:
+     - display: flex
+     - justify-content: space-between (logo on left, links/toggle on right)
+     - align-items: center
+     - max-width: 1100px, centered with margin: 0 auto
+     - padding: 0 var(--gap) (no vertical padding — height controls it)
+     - height: 64px (fixed height so the frosted glass is consistent)
+------------------------------------------------------------- */
+
 .nav-container {
-
+  /* TODO */
 }
 
-/* TODO 3: Style the .nav-logo (your site name / logo text).
-   - font-weight: 700
-   - color: var(--text-primary)
-   - font-size: 1.25rem
-*/
+/* -------------------------------------------------------------
+   TODO 4 — LOGO LINK
+   .nav-logo is the blog name text link:
+     - font-weight: 700
+     - color: --text-primary
+     - font-size: ~1.15rem
+     - letter-spacing: -0.02em (slightly tight, like a brand mark)
+     - transition: color
+
+   Hover: color changes to --accent
+------------------------------------------------------------- */
+
 .nav-logo {
-
+  /* TODO */
 }
 
-/* TODO 4: Style the <nav> links list (.nav-links).
-   - display: flex, gap: 2rem
-   - list-style: none
-   - The <a> tags inside should be color: var(--text-secondary)
-   - On :hover change color to var(--text-primary)
-*/
-.nav-links {
+.nav-logo:hover {
+  /* TODO */
+}
 
+/* -------------------------------------------------------------
+   TODO 5 — NAV LINKS (background highlight on hover)
+   .nav-links is a <ul> with the page links:
+     - display: flex, gap: 0.5rem
+     - list-style: none
+
+   Each <a> inside .nav-links:
+     - color: --text-secondary (muted by default)
+     - font-size: 0.82rem, font-weight: 500
+     - letter-spacing: 0.03em
+     - padding: 0.35rem 0.65rem
+     - border-radius: 6px
+     - transition: color and background
+
+   Hover "surprise": instead of just changing text color,
+   add a background fill to make it feel like a code editor
+   selection or IDE tab:
+     color: --text-primary
+     background: --accent-subtle
+------------------------------------------------------------- */
+
+.nav-links {
+  /* TODO */
 }
 
 .nav-links a {
-
+  /* TODO */
 }
 
 .nav-links a:hover {
-
+  /* TODO */
 }
 
-/* TODO 5 (STRETCH — Hamburger Menu): On mobile (< 768px),
-   hide the nav links and show a hamburger button instead.
-   The JS in about.js will toggle an .open class to show/hide the menu.
+/* -------------------------------------------------------------
+   TODO 6 — THEME TOGGLE BUTTON (the circular icon button)
+   .theme-toggle is a <button> that holds the SVG icon:
+     - background: --bg-alt
+     - border: 1px solid --border
+     - border-radius: 50% (circle)
+     - width: 38px, height: 38px
+     - display: flex, align-items: center, justify-content: center
+     - cursor: pointer
+     - padding: 0
+     - color: --text-secondary
+     - transition: border-color, background, color, box-shadow
 
-   @media (max-width: 768px) {
-     .nav-links { display: none; }
-     .nav-links.open { display: flex; flex-direction: column; ... }
-     .hamburger { display: block; }
-   }
+   Hover state (hint that it's interactive):
+     - border-color: --accent
+     - color: --accent
+     - box-shadow: 0 0 0 3px var(--accent-subtle)
+       (a soft "ring" glow effect)
 
-   Nothing to write here until you reach the hamburger stretch goal.
-*/
+   Active state (click feedback):
+     - transform: scale(0.88)
+------------------------------------------------------------- */
+
+.theme-toggle {
+  /* TODO */
+}
+
+.theme-toggle:hover {
+  /* TODO */
+}
+
+.theme-toggle:active {
+  /* TODO */
+}
+
+/* -------------------------------------------------------------
+   TODO 7 — DARK MODE TOGGLE GLOW
+   In dark mode, the toggle button should already look "activated"
+   to hint that clicking will bring light back. Apply an
+   always-on version of the hover styles:
+     - background: --accent-subtle
+     - border-color: --accent
+     - color: --accent
+
+   Selector: [data-theme="dark"] .theme-toggle
+------------------------------------------------------------- */
+
+/* TODO */
+
+/* -------------------------------------------------------------
+   TODO 8 — SVG ICON SIZING
+   .toggle-icon is the <svg> inside the button:
+     - width: 17px, height: 17px
+     - display: block
+     - overflow: visible (rays of sun icon extend beyond bounds)
+------------------------------------------------------------- */
+
+.toggle-icon {
+  /* TODO */
+}
+
+/* -------------------------------------------------------------
+   TODO 9 — SUN & MOON ICON CROSS-FADE (the animated SVG swap)
+   The SVG contains two <g> groups: .sun-icon and .moon-icon.
+   Both sit in the same 24×24 viewBox, stacked on top of each other.
+   You animate between them using opacity + transform.
+
+   Both icons share base transition properties:
+     - transform-box: fill-box
+       (makes transform-origin relative to the element itself,
+       not the SVG canvas — required for rotation to work right)
+     - transform-origin: center
+     - transition:
+         opacity 0.3s ease,
+         transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)
+       The cubic-bezier here is a "spring" curve — it slightly
+       overshoots then settles, giving a satisfying bounce.
+
+   LIGHT MODE (default):
+     - .sun-icon: opacity 1, scale(1) rotate(0deg)  — visible
+     - .moon-icon: opacity 0, scale(0.3) rotate(90deg)  — hidden,
+       rotated and shrunken so it "flies in" when dark mode activates
+
+   DARK MODE (when [data-theme="dark"] is on html):
+     - .sun-icon: opacity 0, scale(0.3) rotate(-90deg) — hidden
+     - .moon-icon: opacity 1, scale(1) rotate(0deg)  — visible
+------------------------------------------------------------- */
+
+.sun-icon,
+.moon-icon {
+  /* TODO: shared transition and transform-box properties */
+}
+
+/* Light mode states */
+.sun-icon {
+  /* TODO: visible state */
+}
+
+.moon-icon {
+  /* TODO: hidden state */
+}
+
+/* Dark mode states */
+[data-theme="dark"] .sun-icon {
+  /* TODO: hidden state */
+}
+
+[data-theme="dark"] .moon-icon {
+  /* TODO: visible state */
+}
+
+/* -------------------------------------------------------------
+   TODO 10 — HAMBURGER BUTTON (mobile menu toggle)
+   The hamburger is hidden on desktop and shown on mobile.
+   It's a plain <button> with a ☰ character:
+     - display: none (hidden by default — mobile shows it)
+     - background: none, border: none
+     - font-size: 1.4rem
+     - cursor: pointer
+     - color: --text-primary
+     - padding: 0.25rem
+     - line-height: 1
+     - transition: color
+------------------------------------------------------------- */
+
+.hamburger {
+  /* TODO */
+}
+
+/* -------------------------------------------------------------
+   TODO 11 — MOBILE NAVIGATION
+   At max-width: 768px, the nav becomes a dropdown:
+
+   .nav-links (hidden by default on mobile):
+     - display: none
+     - position: absolute (drops below the header)
+     - top: 64px (the header height)
+     - left: 0, right: 0 (full width)
+     - background-color: --bg
+     - border-bottom: 1px solid --border
+     - flex-direction: column
+     - padding: 1.5rem var(--gap)
+     - gap: 0.5rem
+     - transition: background-color
+
+   .nav-links.open (JavaScript adds this class on hamburger click):
+     - display: flex
+     - animation: fadeInUp 0.2s ease both
+
+   .hamburger:
+     - display: block (visible on mobile)
+------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .nav-links {
+    /* TODO */
+  }
+
+  .nav-links.open {
+    /* TODO */
+  }
+
+  .hamburger {
+    /* TODO */
+  }
+}

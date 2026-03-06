@@ -1,76 +1,306 @@
 /* =============================================================
    style.css — Global Styles, CSS Custom Properties, Reset
+   PRACTICE FILE — implement each TODO to rebuild the design.
    ============================================================= */
 
-/* CUSTOM PROPERTIES */
+/* -------------------------------------------------------------
+   TODO 1 — DESIGN TOKENS (CSS Custom Properties)
+   Define all your reusable values as CSS variables on :root.
+   These become the single source of truth for colors, fonts,
+   spacing, and animation timing across ALL your CSS files.
+
+   Variables to define:
+     --bg            : main page background (warm off-white)
+     --bg-alt        : slightly darker background (card sections)
+     --bg-dark       : very dark background (used by footer)
+     --text-primary  : main text color (near-black)
+     --text-secondary: muted text color (medium gray)
+     --accent        : brand/highlight color (forest green works
+                       well for a growth/learning theme)
+     --accent-subtle : very low-opacity version of accent (for
+                       badge backgrounds, hover fills)
+     --accent-glow   : medium-opacity accent (for box-shadows)
+     --border        : standard border color
+     --border-light  : lighter border (for card outlines)
+     --shadow        : box-shadow color (semi-transparent black)
+     --font-sans     : your main sans-serif font stack
+     --font-mono     : monospace font (for tags, dates, code feel)
+     --radius        : border-radius for cards/buttons (e.g. 8px)
+     --gap           : standard spacing unit (e.g. 1.5rem)
+     --transition    : reusable transition shorthand
+                       Tip: use cubic-bezier(0.4, 0, 0.2, 1) —
+                       the "Material Design" easing curve.
+
+   Hint: rgba() lets you make transparent versions of a color.
+   Example: rgba(45, 106, 79, 0.08) is 8% opacity green.
+------------------------------------------------------------- */
 
 :root {
-  --bg: #fafafa;
-  --bg-dark: #202020;
-  --text-primary: #141414;
-  --text-secondary: #505050;
-  --border: #d7d7d7;
-  --border-light: #ececec;
-  --font-sans: "Inter", sans-serif;
-  --radius: 8px;
+  /* Replace these placeholders with real values */
+  --bg: #ffffff;
+  --bg-alt: #f5f5f5;
+  --bg-dark: #111111;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --accent: #000000;
+  --accent-subtle: rgba(0, 0, 0, 0.05);
+  --accent-glow: rgba(0, 0, 0, 0.15);
+  --border: #dddddd;
+  --border-light: #eeeeee;
+  --shadow: rgba(0, 0, 0, 0.08);
+  --font-sans: system-ui, sans-serif;
+  --font-mono: monospace;
+  --radius: 4px;
   --gap: 1.5rem;
+  --transition: 0.2s ease;
 }
 
-/* CSS RESET */
+/* -------------------------------------------------------------
+   TODO 2 — DARK MODE TOKEN OVERRIDES
+   When the <html> element has data-theme="dark", override the
+   token values so every component updates automatically.
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+   The selector is: [data-theme="dark"] { ... }
 
-img {
-  display: block;
-  max-width: 100%;
-}
+   Key differences for dark mode:
+     - --bg becomes near-black (e.g. #0F0F0F)
+     - --text-primary becomes near-white
+     - --accent should be a lighter/brighter version of your
+       light-mode accent so it stays readable on dark backgrounds
+     - --shadow needs higher opacity (dark surfaces still cast shadows)
+     - --border becomes a subtle dark gray
 
-body {
-  font-family: var(--font-sans);
-  background-color: var(--bg);
-  color: var(--text-primary);
-  line-height: 1.6;
-}
+   You do NOT need to touch font or radius variables — they stay
+   the same in both modes.
+------------------------------------------------------------- */
 
-/* TODO 4: Style anchor tags globally.
-   - Remove underline by default
-   - Inherit color
-   - Add underline on :hover
-*/
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* TODO 6 (STRETCH — Dark Mode): Add a [data-theme="dark"] block
-   that overrides the color custom properties for dark mode.
-   The JS toggle will set data-theme="dark" on <html>.
-
-   Example:
-   [data-theme="dark"] {
-     --bg: #141414;
-     --text-primary: #FAFAFA;
-     ...
-   }
-
-   Override all 6 color tokens for dark mode:
-   --bg, --bg-dark, --text-primary, --text-secondary, --border, --border-light
-*/
 [data-theme="dark"] {
-  --bg: #202020;
-  --bg-dark: #141414;
-  --text-primary: #fafafa;
-  --text-secondary: #bfbfbf;
-  --border: #2e2e2e;
-  --border-light: #424242;
+  /* TODO: override the token values for dark mode */
+}
+
+/* -------------------------------------------------------------
+   TODO 3 — CSS RESET
+   Browsers apply default margin, padding, and box-sizing that
+   can cause inconsistent spacing. A minimal reset:
+
+   1. Set box-sizing: border-box on everything (including
+      ::before and ::after pseudo-elements) so padding is
+      included in element width, not added on top.
+   2. Zero out default margin and padding on *, *::before, *::after.
+   3. Make images display: block (removes bottom whitespace gap)
+      and max-width: 100% (prevents overflow).
+------------------------------------------------------------- */
+
+/* TODO: add reset rules here */
+
+/* -------------------------------------------------------------
+   TODO 4 — BASE BODY & LINK STYLES
+   Style the body element:
+     - font-family: use your --font-sans token
+     - background-color: use --bg token
+     - color: use --text-primary token
+     - line-height: 1.7 (comfortable reading spacing)
+     - Add a transition for background-color and color so the
+       dark/light switch animates smoothly.
+
+   For <a> tags: remove text-decoration by default.
+   On hover, also keep text-decoration: none (browsers re-add it).
+------------------------------------------------------------- */
+
+/* TODO: add body and link styles here */
+
+/* -------------------------------------------------------------
+   TODO 5 — KEYFRAME ANIMATIONS
+   Define two @keyframes:
+
+   1. fadeInUp — element fades in AND slides up slightly.
+      from: opacity 0, translateY(18px)
+      to:   opacity 1, translateY(0)
+      Use this on cards, the about section, and post articles.
+
+   2. fadeIn — element fades in only (no movement).
+      from: opacity 0
+      to:   opacity 1
+      Use this on <main> for a gentle page load.
+
+   Then apply fadeIn to the <main> element:
+     animation: fadeIn 0.35s ease both;
+   The "both" fill-mode means the start state applies before
+   the animation runs, preventing a flash of full opacity.
+------------------------------------------------------------- */
+
+/* TODO: define @keyframes fadeInUp and fadeIn here */
+/* TODO: apply fadeIn animation to main */
+
+/* -------------------------------------------------------------
+   TODO 6 — AVATAR
+   The about page avatar (.avatar class on an <img>):
+     - Fixed size: 108px × 108px
+     - border-radius: 50% makes it a circle
+     - object-fit: cover crops the image to fill the circle
+     - Add a border using --border token
+     - Transition border-color and transform
+
+   Hover effect (the "surprise"):
+     - border-color changes to --accent
+     - transform: scale(1.05) — subtle grow
+------------------------------------------------------------- */
+
+.avatar {
+  /* TODO */
+}
+
+.avatar:hover {
+  /* TODO */
+}
+
+/* -------------------------------------------------------------
+   TODO 7 — ABOUT PAGE LAYOUT
+   The about page uses two containers:
+     - .about-section: outer section with vertical padding and
+       a max-width of ~680px, centered with margin: 0 auto
+     - .about-container: inner flex column, centered items,
+       gap between children, with a fadeInUp entrance animation
+
+   Typography inside .about-container:
+     - h1: large font (use clamp() for responsive sizing),
+           heavy weight, tight letter-spacing (-0.03em)
+     - p: secondary text color, comfortable line-height (1.8)
+     - h2 (subheading): smaller, muted, slightly spaced letters
+------------------------------------------------------------- */
+
+.about-section {
+  /* TODO */
+}
+
+.about-container {
+  /* TODO */
+}
+
+.about-container h1 {
+  /* TODO */
+}
+
+.about-container > p {
+  /* TODO */
+}
+
+.about-container h2 {
+  /* TODO */
+}
+
+/* -------------------------------------------------------------
+   TODO 8 — SKILLS BADGES (the hover "surprise" on about page)
+   .skills-list is a flex-wrapped list of badges:
+     - list-style: none
+     - display: flex, flex-wrap: wrap, justify-content: center
+     - gap between badges
+
+   Each <li> badge:
+     - background: --accent-subtle (very light tint)
+     - color: --accent
+     - padding: 0.35rem 0.85rem
+     - border-radius: --radius
+     - font-family: --font-mono (gives a developer/code feel)
+     - font-size: ~0.72rem
+     - border: 1px solid --border
+     - Transition: transform, background, color, border-color,
+       box-shadow (all using --transition)
+
+   Hover effect (the satisfying pop):
+     - transform: translateY(-2px) — float up slightly
+     - background changes to --accent (full color fill)
+     - color becomes #fff (white text on colored background)
+     - border-color: --accent
+     - box-shadow: uses --accent-glow for a soft color glow
+------------------------------------------------------------- */
+
+.skills-list {
+  /* TODO */
+}
+
+.skills-list li {
+  /* TODO */
+}
+
+.skills-list li:hover {
+  /* TODO */
+}
+
+/* -------------------------------------------------------------
+   TODO 9 — POST ARTICLE
+   The post page article (.post-article):
+     - padding: 3.5rem top/bottom, var(--gap) left/right
+     - max-width: ~720px, centered
+     - fadeInUp animation with a slight delay (0.1s) so it
+       enters after the hero image has loaded
+
+   Post hero image (.post-hero img):
+     - full width, max-height: 500px, object-fit: cover
+
+   Post metadata (.post-meta):
+     - font-family: --font-mono (dates/category look like code)
+     - small font size (0.72rem), letter-spacing: 0.03em
+     - secondary text color
+
+   Article headings and paragraphs:
+     - h1: large, tight letter-spacing, 700 weight
+     - p: secondary text color, generous line-height (1.9)
+
+   .more-posts section (related posts at bottom of post page):
+     - background: --bg-alt
+     - centered heading, bottom padding
+------------------------------------------------------------- */
+
+.post-article {
+  /* TODO */
+}
+
+.post-hero {
+  /* TODO */
+}
+
+.post-hero img {
+  /* TODO */
+}
+
+.post-meta {
+  /* TODO */
+}
+
+.post-article h1 {
+  /* TODO */
+}
+
+.post-article p {
+  /* TODO */
+}
+
+.more-posts {
+  /* TODO */
+}
+
+.more-posts h2 {
+  /* TODO */
+}
+
+/* -------------------------------------------------------------
+   TODO 10 — READING PROGRESS BAR
+   A thin bar fixed at the very top of the viewport that grows
+   from left to right as the user scrolls down the article.
+   JavaScript controls the width via: bar.style.width = X + '%'
+
+   CSS requirements:
+     - position: fixed (stays at top while scrolling)
+     - top: 0, left: 0
+     - height: 2px (thin and subtle)
+     - background: --accent
+     - z-index: 200 (above the sticky header at z-index 100)
+     - width: 0% initial (JS drives it from there)
+     - pointer-events: none (so it never blocks clicks)
+     - transition: width 0.1s linear (smooth fill, not jumpy)
+------------------------------------------------------------- */
+
+.reading-progress {
+  /* TODO */
 }

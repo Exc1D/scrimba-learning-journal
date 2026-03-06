@@ -1,136 +1,408 @@
 /* =============================================================
-   post-card.css — Post Card, Grid, Hero & Button Styles
+   post-card.css — Post Card, Grid, Hero, Search & Button Styles
+   PRACTICE FILE — implement each TODO to rebuild the design.
    ============================================================= */
 
-.posts-section,
+/* -------------------------------------------------------------
+   TODO 1 — POSTS GRID (CSS Grid layout)
+   .posts-section is the outer wrapper (no padding needed here).
+   .posts-container is the inner centered wrapper:
+     - max-width: 1100px, margin: 0 auto
+     - padding: 3rem var(--gap)
+     - display: flex, flex-direction: column (stacks search,
+       grid, and load-more button vertically)
+
+   .posts-grid is the actual grid:
+     - display: grid  ← CRITICAL — without this, nothing works
+     - grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
+       This creates a responsive grid: cards are at least 300px
+       wide, and as many columns fit as the screen allows.
+     - gap: 2rem
+------------------------------------------------------------- */
+
+.posts-section {
+  /* TODO */
+}
+
 .posts-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2 rem var(--gap);
+  /* TODO */
 }
 
 .posts-grid {
-  grid-template-columns: repeat(autofilll, minmax(300px, 1fr));
-  gap: var(--gap);
+  /* TODO: MUST include display: grid */
 }
 
+/* -------------------------------------------------------------
+   TODO 2 — POST CARD (base styles)
+   .post-card is the card container:
+     - background: --bg
+     - border: 1px solid --border-light
+     - border-radius: --radius
+     - overflow: hidden (clips the image zoom)
+     - cursor: pointer
+     - position: relative (needed for the ::before accent line)
+     - Transition: transform, border-color, box-shadow
+     - animation: fadeInUp 0.45s ease both (entrance animation)
+
+   Hover:
+     - transform: translateY(-4px) — card lifts up
+     - border-color: --border
+     - box-shadow: 0 8px 24px var(--shadow)
+------------------------------------------------------------- */
+
 .post-card {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  cursor: pointer;
+  /* TODO */
 }
 
 .post-card:hover {
-  box-shadow: 0 4px 8px rgba(0 0 0 0.1);
-  transition: box-shadow 0.3s ease;
+  /* TODO */
 }
+
+/* -------------------------------------------------------------
+   TODO 3 — STAGGERED CARD ENTRANCE ANIMATION
+   When multiple cards appear at once, staggering their entrance
+   makes it feel more natural — like they're loading one by one.
+
+   Use nth-child with animation-delay:
+     :nth-child(1) { animation-delay: 0.04s; }
+     :nth-child(2) { animation-delay: 0.10s; }
+     :nth-child(3) { animation-delay: 0.16s; }
+     ... and so on up to 6 cards.
+
+   The delay increases by 0.06s per card.
+------------------------------------------------------------- */
+
+/* TODO: add stagger delays for cards 1–6 */
+
+/* -------------------------------------------------------------
+   TODO 4 — ACCENT LINE HOVER EFFECT (::before pseudo-element)
+   This is the main "surprise" for cards — a colored vertical
+   line that slides in from the bottom on hover.
+
+   .post-card::before creates the line:
+     - content: '' (required for pseudo-elements to appear)
+     - position: absolute
+     - left: 0, top: 0, bottom: 0 (full height, left edge)
+     - width: 3px
+     - background: --accent
+     - transform: scaleY(0) — invisible by default (squished)
+     - transform-origin: bottom — it grows upward from the bottom
+     - transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)
+     - z-index: 2
+
+   On hover (.post-card:hover::before):
+     - transform: scaleY(1) — full height (visible)
+     - transform-origin: top — changes origin so it appears to
+       slide from bottom to top (read about this technique!)
+
+   Note: the parent card needs position: relative for absolute
+   positioning to work correctly.
+------------------------------------------------------------- */
+
+.post-card::before {
+  /* TODO */
+}
+
+.post-card:hover::before {
+  /* TODO */
+}
+
+/* -------------------------------------------------------------
+   TODO 5 — CARD IMAGE ZOOM ON HOVER
+   The card thumbnail image:
+     - width: 100%
+     - aspect-ratio: 16 / 9 (consistent height across all cards)
+     - object-fit: cover
+     - transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)
+       (slightly longer than card transition for a layered feel)
+
+   On hover (.post-card:hover img):
+     - transform: scale(1.04) — subtle zoom into the image
+     - The overflow: hidden on the card container clips the zoom
+------------------------------------------------------------- */
 
 .post-card img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
+  /* TODO */
 }
 
-/* TODO 5: Style .card-body (text area below the image).
-   - padding: 1rem
-*/
+.post-card:hover img {
+  /* TODO */
+}
+
+/* -------------------------------------------------------------
+   TODO 6 — CARD BODY & TYPOGRAPHY
+   .card-body is the text section below the image:
+     - padding: 0.85rem 1rem 1rem
+
+   .tag (category label, also used in hero):
+     - font-family: --font-mono (code-like feel)
+     - font-size: 0.7rem, font-weight: 500
+     - text-transform: uppercase, letter-spacing: 0.06em
+     - color: --accent
+
+   .card-body h3 (card title):
+     - font-size: 1.1rem, font-weight: 600
+     - line-height: 1.35, letter-spacing: -0.01em
+     - Hover on the link inside: color changes to --accent
+
+   .excerpt:
+     - font-size: 0.85rem, secondary color, line-height: 1.6
+     - Truncate to 2 lines using -webkit-line-clamp:
+         display: -webkit-box;
+         -webkit-line-clamp: 2;
+         -webkit-box-orient: vertical;
+         overflow: hidden;
+
+   .card-meta (date / read time row):
+     - font-family: --font-mono, font-size: 0.72rem
+     - secondary color
+     - Add a '/' separator after the first span:
+         .card-meta span:first-child::after { content: '/'; opacity: 0.35; }
+------------------------------------------------------------- */
+
 .card-body {
-  padding: 1rem;
+  /* TODO */
 }
 
-/* TODO 6: Style .tag (category label e.g. "CSS", "JavaScript").
-   - font-size: 0.75rem
-   - text-transform: uppercase
-   - letter-spacing: 0.05em
-   - color: var(--text-secondary)
-*/
 .tag {
+  /* TODO */
 }
 
-/* TODO 7: Style the card title (h3 inside .card-body).
-   - font-size: 1.125rem
-   - margin: 0.5rem 0
-   - color: var(--text-primary)
-*/
 .card-body h3 {
+  /* TODO */
 }
 
-/* TODO 8: Style .card-meta row (author + date).
-   - display: flex
-   - align-items: center
-   - gap: 0.5rem
-   - font-size: 0.875rem
-   - color: var(--text-secondary)
-*/
+.card-body h3 a:hover {
+  /* TODO */
+}
+
+.card-body .excerpt {
+  /* TODO */
+}
+
 .card-meta {
+  /* TODO */
 }
 
-/* TODO 9: Style the hero section.
-   The hero has a full-width image with a preview card overlaid on desktop.
+.card-meta span:first-child::after {
+  /* TODO */
+}
 
-   .hero:
-   - position: relative
-   - overflow: hidden
+/* -------------------------------------------------------------
+   TODO 7 — HERO SECTION (Ken Burns animation)
+   .hero wraps the featured post at the top of the home page:
+     - position: relative (needed for gradient overlay + card)
+     - overflow: hidden (clips the zoom animation)
 
    .hero img:
-   - width: 100%
-   - aspect-ratio: 16 / 9
-   - object-fit: cover
+     - width: 100%, aspect-ratio: 16/9, object-fit: cover
+     - animation: heroZoom 12s ease both
 
-   .hero-card:
-   - padding: 1.5rem
-   - background: var(--bg)
-   - border-radius: var(--radius)
+   Define @keyframes heroZoom:
+     from { transform: scale(1.05); }
+     to   { transform: scale(1); }
+   This is the Ken Burns effect — a slow zoom that adds life
+   to the static image. 12s is long enough to feel cinematic
+   without being distracting.
+------------------------------------------------------------- */
 
-   DESKTOP overlay — inside a @media (min-width: 768px) block:
-   .hero-card:
-   - position: absolute
-   - bottom: 2rem
-   - left: 2rem
-   - max-width: 380px
-   (On mobile the card is a normal block below the image — no position needed.)
-*/
 .hero {
+  /* TODO */
 }
 
 .hero img {
+  /* TODO */
 }
+
+/* TODO: define @keyframes heroZoom */
+
+/* -------------------------------------------------------------
+   TODO 8 — MOBILE HERO CARD (below the image on small screens)
+   .hero-card contains the title, excerpt, and CTA button.
+   On mobile it sits BELOW the image like a normal content block:
+     - padding: 1.5rem var(--gap)
+     - background: --bg
+     - border-left: 3px solid --accent (accent line on left edge)
+     - transition: background and border-color
+
+   Typography:
+     - h1: clamp(1.35rem, 3.5vw, 2rem), 700 weight, tight leading
+     - p: 0.92rem, secondary color
+------------------------------------------------------------- */
 
 .hero-card {
+  /* TODO */
 }
 
-/* TODO 10 (STRETCH): Style the #search input.
-   - width: 100%
-   - padding: 0.75rem
-   - border: 1px solid var(--border)
-   - border-radius: var(--radius)
-   - margin-bottom: var(--gap)
-   - font-family: inherit
-   - font-size: 1rem
-   Add a :focus state: outline removed, border-color changed to var(--text-primary).
-*/
+.hero-card h1 {
+  /* TODO */
+}
+
+.hero-card > p {
+  /* TODO */
+}
+
+/* -------------------------------------------------------------
+   TODO 9 — DESKTOP HERO: GRADIENT OVERLAY + FLOATING CARD
+   On screens wider than 768px, the card floats over the image:
+
+   First, add a dark gradient overlay using .hero::after:
+     - content: '', position: absolute, inset: 0
+     - background: a linear-gradient at ~110deg angle
+       from rgba(0,0,0,0.88) on the left (text side)
+       to rgba(0,0,0,0.15) on the right (photo side)
+     - pointer-events: none (so links below it still work)
+
+   Then, reposition .hero-card to float over the image:
+     - position: absolute
+     - bottom: 2.5rem, left: 3rem
+     - max-width: 440px
+     - padding: 0 0 0 1.5rem (only left padding)
+     - background: transparent (see through to the gradient)
+     - border-left: 3px solid rgba(255, 255, 255, 0.3)
+     - z-index: 1 (above the ::after overlay)
+     - animation: fadeInUp 0.7s ease 0.25s both
+
+   Override text colors for white-on-dark readability:
+     - .tag: rgba(255,255,255,0.55)
+     - h1: #fff
+     - p: rgba(255,255,255,0.7)
+
+   Override .btn styles on dark backgrounds:
+     - border-color: rgba(255,255,255,0.6), color: #fff,
+       background: transparent
+     - On hover: color becomes --text-primary (dark text)
+       because the ::before fill becomes rgba(255,255,255,0.95)
+------------------------------------------------------------- */
+
+@media (min-width: 768px) {
+  .hero::after {
+    /* TODO: gradient overlay */
+  }
+
+  .hero-card {
+    /* TODO: floating card position */
+  }
+
+  .hero-card .tag {
+    /* TODO */
+  }
+
+  .hero-card h1 {
+    /* TODO */
+  }
+
+  .hero-card > p {
+    /* TODO */
+  }
+
+  .hero-card .btn {
+    /* TODO: button styles on dark background */
+  }
+
+  .hero-card .btn::before {
+    /* TODO: white fill for hover wipe */
+  }
+
+  .hero-card .btn:hover {
+    /* TODO */
+  }
+}
+
+/* -------------------------------------------------------------
+   TODO 10 — SEARCH INPUT
+   #search is a text input above the posts grid.
+   Style it as a minimal underline input (no box):
+     - width: 100%
+     - padding: 0.75rem 0 (vertical only — no side padding)
+     - border: none
+     - border-bottom: 2px solid --border (underline only)
+     - border-radius: 0
+     - margin-bottom: 2.5rem
+     - font-family: --font-sans, font-size: 0.9rem
+     - background: transparent, color: --text-primary
+     - transition: border-color, box-shadow, color
+
+   Placeholder text:
+     - color: --text-secondary
+     - font-style: italic
+
+   Focus state (the "glow" on focus):
+     - outline: none (remove default browser outline)
+     - border-color: --accent
+     - box-shadow: 0 1px 0 0 var(--accent)
+       This extends the underline with a 1px shadow — subtle
+       double-line glow effect.
+------------------------------------------------------------- */
+
 #search {
+  /* TODO */
+}
+
+#search::placeholder {
+  /* TODO */
 }
 
 #search:focus {
+  /* TODO */
 }
 
-/* TODO 11 (STRETCH): Style the .btn reusable button class.
-   - display: inline-block
-   - padding: 0.6rem 1.25rem
-   - border: 2px solid var(--text-primary)
-   - background: transparent
-   - color: var(--text-primary)
-   - border-radius: var(--radius)
-   - cursor: pointer
-   - font-family: inherit
-   On :hover: swap background and color (background: var(--text-primary), color: var(--bg)).
-   Add a transition for the swap.
-*/
+/* -------------------------------------------------------------
+   TODO 11 — LOAD MORE BUTTON ALIGNMENT
+   #load-more button needs to be centered in the flex column:
+     - align-self: center
+     - margin-top: 2.5rem
+------------------------------------------------------------- */
+
+#load-more {
+  /* TODO */
+}
+
+/* -------------------------------------------------------------
+   TODO 12 — BUTTON: WIPE-FILL HOVER EFFECT
+   .btn is used for "Read more", "Load more", and "Like" buttons.
+   Base styles:
+     - display: inline-block
+     - padding: 0.65rem 1.5rem
+     - border: 1px solid --text-primary
+     - background: transparent
+     - color: --text-primary
+     - border-radius: --radius
+     - cursor: pointer
+     - font-family: --font-sans, font-size: 0.8rem, font-weight: 500
+     - letter-spacing: 0.06em, text-transform: uppercase
+     - position: relative, overflow: hidden, z-index: 1
+     - transition: color, border-color
+
+   The "wipe fill" hover effect uses a ::before pseudo-element:
+     - content: '', position: absolute
+     - top: 0, left: -101% (starts off-screen to the left)
+     - width: 100%, height: 100%
+     - background: --text-primary
+     - z-index: -1 (behind the text)
+     - transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1)
+
+   On hover:
+     - color: --bg (text becomes light — readable on dark fill)
+     - ::before left: 0 (slides in from the left, covering button)
+
+   How it works: the fill is always there, just hidden off to the
+   left. On hover, it slides into view, appearing to "wipe" color
+   across the button from left to right.
+------------------------------------------------------------- */
+
 .btn {
+  /* TODO */
+}
+
+.btn::before {
+  /* TODO: the off-screen fill layer */
 }
 
 .btn:hover {
+  /* TODO */
+}
+
+.btn:hover::before {
+  /* TODO: slide fill into view */
 }
