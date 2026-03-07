@@ -1,73 +1,115 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — My Learning Journal</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — Utak ni Dabid.</title>
 
-  <!-- TODO: Add Google Fonts link (same as index.html) -->
+    <!-- TODO: Add Google Fonts link (same as index.html) -->
 
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/nav.css" />
-  <link rel="stylesheet" href="css/footer.css" />
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+  </head>
+  <body>
+    <!-- HEADER: Copy the completed <header> block from index.html once you have filled it in. -->
+    <header>
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">Utak ni Dabid.</a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </nav>
+        <button
+          class="theme-toggle"
+          aria-label="Toggle dark mode"
+          title="Toggle dark mode"
+        >
+          <svg class="toggle-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <g
+              class="sun-icon"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <line x1="12" y1="2" x2="12" y2="4" />
+              <line x1="12" y1="20" x2="12" y2="22" />
+              <line x1="2" y1="12" x2="4" y2="12" />
+              <line x1="20" y1="12" x2="22" y2="12" />
+              <line x1="4.93" y1="4.93" x2="6.34" y2="6.34" />
+              <line x1="17.66" y1="17.66" x2="19.07" y2="19.07" />
+              <line x1="19.07" y1="4.93" x2="17.66" y2="6.34" />
+              <line x1="4.93" y1="19.07" x2="6.34" y2="17.66" />
+            </g>
+            <g
+              class="moon-icon"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </g>
+          </svg>
+        </button>
+        <button class="hamburger" aria-label="Open menu">☰</button>
+      </div>
+    </header>
 
-  <!-- HEADER: Copy the completed <header> block from index.html once you have filled it in. -->
-  <header>
-    <div class="nav-container">
-      <!-- TODO 1: Paste your nav here (same as index.html TODO 1 and TODO 2) -->
-    </div>
-  </header>
-
-  <main>
-
-    <!-- =====================================================
+    <main>
+      <!-- =====================================================
          PROFILE / ABOUT SECTION
          ===================================================== -->
-    <section class="about-section">
-      <div class="about-container">
+      <section class="about-section">
+        <div class="about-container">
+          <img
+            src="assets/images/avatar.jpg"
+            alt="David Aviado's Avatar"
+            class="Avatar"
+          />
 
-        <!-- TODO 2: Add your profile image.
-             <img src="assets/images/avatar.jpg" alt="Your Name" class="avatar" />
-             Tip: Use a photo of yourself or a fun avatar image.
-             Style .avatar in style.css or nav.css: border-radius: 50%, width: 120px.
-        -->
+          <h1>David Aviado</h1>
+          <p>
+            I traded my rifle for a keyboard and a cup of coffee. They didn't
+            teach me these stuff in the Academy. Now I'm learning web
+            development and AI engineering one cup of coffee at a time.
+          </p>
 
-        <!-- TODO 3: Add your name as an <h1> and a bio as 1–2 <p> tags.
-             Write 2–3 sentences about yourself and what you are learning.
-             Example:
-             <h1>Your Name</h1>
-             <p>I am a developer learning HTML, CSS, and JavaScript through Scrimba.</p>
-        -->
+          <h2>Interests</h2>
+          <ul class="skills-list">
+            <li>JavaScript</li>
+            <li>Web Development</li>
+            <li>AI Engineering</li>
+            <li>Politics</li>
+          </ul>
 
-        <!-- TODO 4: Add a skills or interests section.
-             Use an <h2> heading and an unordered list.
-             Example:
-             <h2>What I'm learning</h2>
-             <ul class="skills-list">
-               <li>HTML &amp; CSS</li>
-               <li>Responsive Design</li>
-               <li>JavaScript</li>
-             </ul>
-        -->
+          <!-- TODO 5: Add a link back to the blog.
+             <a href="index.html" class="btn">Read my posts →</a
+             -->
+          <a href="index.html">Read my posts</a>
+        </div>
+      </section>
+    </main>
 
-        <!-- TODO 5: Add a link back to the blog.
-             <a href="index.html" class="btn">Read my posts →</a>
-        -->
-
+    <footer>
+      <div class="footer-container">
+        <div class="footer-container">
+        <span class="nav-logo">Utak ni Dabid.</span>
+        <p>© 2026 EXXEED</p>
       </div>
-    </section>
+    </footer>
 
-  </main>
+    <!-- Scripts loaded at end of <body> so the DOM is ready when they run -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+      </div>
+    </footer>
 
-  <!-- FOOTER: Copy the completed <footer> block from index.html once you have filled it in. -->
-  <footer>
-    <div class="footer-container">
-      <!-- TODO 6: Paste your footer here (same as index.html TODO 8) -->
-    </div>
-  </footer>
-
-  <script src="js/about.js"></script>
-</body>
+    <script src="js/about.js"></script>
+  </body>
 </html>
