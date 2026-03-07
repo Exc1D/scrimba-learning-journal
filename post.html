@@ -1,84 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Post — My Learning Journal</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post — Utak ni Dabid.</title>
 
-  <!-- TODO: Add Google Fonts link (same as index.html) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/post-card.css" />
+  </head>
+  <body>
+    <!-- HEADER: Copy the completed <header> block from index.html once you have filled it in. -->
+    <header>
+      <div class="nav-container">
+        <div class="nav-container">
+          <a href="index.html" class="nav-logo">Utak ni Dabid.</a>
+          <nav>
+            <ul class="nav-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </nav>
+          <button
+            class="theme-toggle"
+            aria-label="Toggle dark mode"
+            title="Toggle dark mode"
+          >
+            <svg class="toggle-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <g
+                class="sun-icon"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <line x1="12" y1="2" x2="12" y2="4" />
+                <line x1="12" y1="20" x2="12" y2="22" />
+                <line x1="2" y1="12" x2="4" y2="12" />
+                <line x1="20" y1="12" x2="22" y2="12" />
+                <line x1="4.93" y1="4.93" x2="6.34" y2="6.34" />
+                <line x1="17.66" y1="17.66" x2="19.07" y2="19.07" />
+                <line x1="19.07" y1="4.93" x2="17.66" y2="6.34" />
+                <line x1="4.93" y1="19.07" x2="6.34" y2="17.66" />
+              </g>
+              <g
+                class="moon-icon"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </g>
+            </svg>
+          </button>
+          <button class="hamburger" aria-label="Open menu">☰</button>
+        </div>
+      </div>
+    </header>
 
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/nav.css" />
-  <link rel="stylesheet" href="css/footer.css" />
-  <link rel="stylesheet" href="css/post-card.css" />
-</head>
-<body>
-
-  <!-- HEADER: Copy the completed <header> block from index.html once you have filled it in. -->
-  <header>
-    <div class="nav-container">
-      <!-- TODO 1: Paste your nav here (same as index.html TODO 1 and TODO 2) -->
-    </div>
-  </header>
-
-  <main>
-
-    <!-- =====================================================
+    <main>
+      <!-- =====================================================
          POST HERO IMAGE
          ===================================================== -->
-    <section class="post-hero">
-      <!-- post.js injects the post's hero <img> into this div. Leave it empty. -->
-      <div id="post-hero-image"></div>
-    </section>
+      <section class="post-hero">
+        <!-- post.js injects the post's hero <img> into this div. Leave it empty. -->
+        <div id="post-hero-image"></div>
+      </section>
 
-    <!-- =====================================================
+      <!-- =====================================================
          ARTICLE CONTENT
          ===================================================== -->
-    <article class="post-article">
-      <div class="post-container">
-
-        <!-- post.js injects the full article here (category tag, title, meta, body paragraphs).
+      <article class="post-article">
+        <div class="post-container">
+          <!-- post.js injects the full article here (category tag, title, meta, body paragraphs).
              Leave this div empty — do not add HTML inside it.
         -->
-        <div id="post-content"></div>
+          <div id="post-content"></div>
+          <button id="like-btn" class="btn btn-like">
+            ♡ Like<span id="like-count">0</span>
+          </button>
 
-        <!-- TODO 2 (STRETCH): Add a like button below the article.
-             <button id="like-btn" class="btn btn-like">
-               ♡ Like (<span id="like-count">0</span>)
-             </button>
-             Wire it up in js/post.js (TODO 8 in that file).
-        -->
-
-        <!-- TODO 3 (STRETCH): Reading time is injected by post.js into the post meta.
+          <!-- TODO 3 (STRETCH): Reading time is injected by post.js into the post meta.
              No HTML needed here — it is handled in js/post.js (TODO 9).
-        -->
+        --></div>
+      </article>
 
-      </div>
-    </article>
-
-    <!-- =====================================================
+      <!-- =====================================================
          MORE POSTS SECTION
          ===================================================== -->
-    <section class="more-posts">
-      <div class="posts-container">
-        <h2>More posts</h2>
+      <section class="more-posts">
+        <div class="posts-container">
+          <h2>More posts</h2>
 
-        <!-- post.js injects 2–3 related post cards here. Leave this div empty. -->
-        <div id="more-posts-grid" class="posts-grid"></div>
+          <!-- post.js injects 2–3 related post cards here. Leave this div empty. -->
+          <div id="more-posts-grid" class="posts-grid"></div>
+        </div>
+      </section>
+    </main>
 
+    <footer>
+      <div class="footer-container">
+        <div class="footer-container">
+          <span class="nav-logo">Utak ni Dabid.</span>
+          <p>© 2026 EXXEED</p>
+        </div>
       </div>
-    </section>
+    </footer>
 
-  </main>
-
-  <!-- FOOTER: Copy the completed <footer> block from index.html once you have filled it in. -->
-  <footer>
-    <div class="footer-container">
-      <!-- TODO 4: Paste your footer here (same as index.html TODO 8) -->
-    </div>
-  </footer>
-
-  <script src="js/data.js"></script>
-  <script src="js/post.js"></script>
-</body>
+    <script src="js/data.js"></script>
+    <script src="js/post.js"></script>
+  </body>
 </html>
