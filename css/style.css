@@ -8,7 +8,6 @@ DESIGN TOKENS
 ------------------------------------------------------------- */
 
 :root {
-  /* Replace these placeholders with real values */
   --bg: ##fafaf8;
   --bg-alt: #f0efec;
   --bg-dark: #151515;
@@ -89,26 +88,8 @@ a:hover {
   text-decoration: none;
 }
 /* -------------------------------------------------------------
-   TODO 5 — KEYFRAME ANIMATIONS
-   Define two @keyframes:
-
-   1. fadeInUp — element fades in AND slides up slightly.
-      from: opacity 0, translateY(18px)
-      to:   opacity 1, translateY(0)
-      Use this on cards, the about section, and post articles.
-
-   2. fadeIn — element fades in only (no movement).
-      from: opacity 0
-      to:   opacity 1
-      Use this on <main> for a gentle page load.
-
-   Then apply fadeIn to the <main> element:
-     animation: fadeIn 0.35s ease both;
-   The "both" fill-mode means the start state applies before
-   the animation runs, preventing a flash of full opacity.
+ANIMATIONS
 ------------------------------------------------------------- */
-
-/* TODO: define @keyframes fadeInUp and fadeIn here */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -129,23 +110,12 @@ a:hover {
   }
 }
 
-/* TODO: apply fadeIn animation to main */
 main {
   animation: fadeIn 0.25s ease both;
 }
 
 /* -------------------------------------------------------------
-   TODO 6 — AVATAR
-   The about page avatar (.avatar class on an <img>):
-     - Fixed size: 108px × 108px
-     - border-radius: 50% makes it a circle
-     - object-fit: cover crops the image to fill the circle
-     - Add a border using --border token
-     - Transition border-color and transform
-
-   Hover effect (the "surprise"):
-     - border-color changes to --accent
-     - transform: scale(1.05) — subtle grow
+AVATAR
 ------------------------------------------------------------- */
 
 .avatar {
@@ -165,18 +135,7 @@ main {
 }
 
 /* -------------------------------------------------------------
-   TODO 7 — ABOUT PAGE LAYOUT
-   The about page uses two containers:
-     - .about-section: outer section with vertical padding and
-       a max-width of ~680px, centered with margin: 0 auto
-     - .about-container: inner flex column, centered items,
-       gap between children, with a fadeInUp entrance animation
-
-   Typography inside .about-container:
-     - h1: large font (use clamp() for responsive sizing),
-           heavy weight, tight letter-spacing (-0.03em)
-     - p: secondary text color, comfortable line-height (1.8)
-     - h2 (subheading): smaller, muted, slightly spaced letters
+ ABOUT PAGE LAYOUT
 ------------------------------------------------------------- */
 
 .about-section {
@@ -188,56 +147,70 @@ main {
 .about-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  animation: fadeInUp 0.5s ease both;
 }
 
 .about-container h1 {
-  /* TODO */
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 0.25rem;
 }
 
 .about-container > p {
-  /* TODO */
+  color: var(--text-secondary);
+  max-width: 460px;
+  line-height: 1.8;
+  margin-bottom: 1rem;
 }
 
 .about-container h2 {
-  /* TODO */
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
 }
 
 /* -------------------------------------------------------------
-   TODO 8 — SKILLS BADGES (the hover "surprise" on about page)
-   .skills-list is a flex-wrapped list of badges:
-     - list-style: none
-     - display: flex, flex-wrap: wrap, justify-content: center
-     - gap between badges
-
-   Each <li> badge:
-     - background: --accent-subtle (very light tint)
-     - color: --accent
-     - padding: 0.35rem 0.85rem
-     - border-radius: --radius
-     - font-family: --font-mono (gives a developer/code feel)
-     - font-size: ~0.72rem
-     - border: 1px solid --border
-     - Transition: transform, background, color, border-color,
-       box-shadow (all using --transition)
-
-   Hover effect (the satisfying pop):
-     - transform: translateY(-2px) — float up slightly
-     - background changes to --accent (full color fill)
-     - color becomes #fff (white text on colored background)
-     - border-color: --accent
-     - box-shadow: uses --accent-glow for a soft color glow
+SKILLS
 ------------------------------------------------------------- */
 
 .skills-list {
-  /* TODO */
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .skills-list li {
-  /* TODO */
+  background: var(--accent-subtle);
+  color: var(--accent);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  border: 1px solid var(--border);
+  transition:
+    transform var(--transition),
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
 }
 
 .skills-list li:hover {
-  /* TODO */
+  transform: translateY(-2px);
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  box-shadow: var(--accent-glow);
 }
 
 /* -------------------------------------------------------------
@@ -266,7 +239,6 @@ main {
 ------------------------------------------------------------- */
 
 .post-article {
-  /* TODO */
 }
 
 .post-hero {
