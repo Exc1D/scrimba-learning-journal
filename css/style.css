@@ -125,6 +125,9 @@ a:hover {
 }
 
 /* TODO: apply fadeIn animation to main */
+main {
+  animation: fadeIn 0.25s ease both;
+}
 
 /* -------------------------------------------------------------
    TODO 6 — AVATAR
@@ -141,11 +144,19 @@ a:hover {
 ------------------------------------------------------------- */
 
 .avatar {
-  /* TODO */
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: var(--border);
+  transition:
+    border-color var(--transition),
+    transform var(--transition);
 }
 
 .avatar:hover {
-  /* TODO */
+  border-color: var(--accent);
+  transform: scale(1.05);
 }
 
 /* -------------------------------------------------------------
@@ -164,11 +175,14 @@ a:hover {
 ------------------------------------------------------------- */
 
 .about-section {
-  /* TODO */
+  padding: 4rem 0;
+  max-width: 680px;
+  margin: 0 auto;
 }
 
 .about-container {
-  /* TODO */
+  display: flex;
+  flex-direction: column;
 }
 
 .about-container h1 {
