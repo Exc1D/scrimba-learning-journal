@@ -68,11 +68,16 @@ img {
 BASE BODY & LINK STYLES
 ------------------------------------------------------------- */
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-sans);
   background-color: var(--bg);
   color: var(--text-primary);
   line-height: 1.7;
-  transition: background-color var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(var(--transition));
 }
 
 a {
