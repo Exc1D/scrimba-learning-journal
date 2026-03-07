@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -30,12 +30,43 @@
             <li><a href="about.html">About</a></li>
           </ul>
         </nav>
-
-        <!-- TODO 3 (STRETCH): Add a theme toggle button and hamburger icon.
-           <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
-           <button class="hamburger" aria-label="Open menu">☰</button>
-           Wire these up in a shared js/theme.js file loaded on every page (see the theme toggle hints in js/about.js TODO 1), or add the logic directly to js/main.js for now.
-      --></div>
+        <button
+          class="theme-toggle"
+          aria-label="Toggle dark mode"
+          title="Toggle dark mode"
+        >
+          <svg class="toggle-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <g
+              class="sun-icon"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <line x1="12" y1="2" x2="12" y2="4" />
+              <line x1="12" y1="20" x2="12" y2="22" />
+              <line x1="2" y1="12" x2="4" y2="12" />
+              <line x1="20" y1="12" x2="22" y2="12" />
+              <line x1="4.93" y1="4.93" x2="6.34" y2="6.34" />
+              <line x1="17.66" y1="17.66" x2="19.07" y2="19.07" />
+              <line x1="19.07" y1="4.93" x2="17.66" y2="6.34" />
+              <line x1="4.93" y1="19.07" x2="6.34" y2="17.66" />
+            </g>
+            <g
+              class="moon-icon"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </g>
+          </svg>
+        </button>
+        <button class="hamburger" aria-label="Open menu">☰</button>
+      </div>
     </header>
 
     <main>
@@ -65,19 +96,10 @@
          ===================================================== -->
       <section class="posts-section">
         <div class="posts-container">
-          <!-- TODO 6 (STRETCH): Add a search/filter input above the grid.
-             <input type="text" id="search" placeholder="Search posts..." />
-             The filter logic is in js/main.js (TODO 4 in that file).
-        -->
           <input type="text" id="search" placeholder="Search posts..." />
 
           <!-- The post cards are injected here by js/main.js. Leave this div empty. -->
           <div id="posts-grid" class="posts-grid"></div>
-
-          <!-- TODO 7 (STRETCH): Add a "Load more" button below the grid.
-             <button id="load-more" class="btn">Load more posts</button>
-             The pagination logic is in js/main.js (TODO 5 in that file).
-        -->
           <button id="load-more" class="btn">Load more posts</button>
         </div>
       </section>
