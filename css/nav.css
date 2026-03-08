@@ -15,32 +15,18 @@ header {
     border-color var(--transition);
 }
 
-/* -------------------------------------------------------------
-   TODO 2 — DARK MODE HEADER
-   When [data-theme="dark"] is active, the light rgba background
-   looks wrong. Override it with the dark equivalent:
-     background-color: rgba(15, 15, 15, 0.85)
-   The blur and border are inherited from above — only the
-   background color needs to change.
-------------------------------------------------------------- */
-
 [data-theme="dark"] header {
-  /* TODO */
+  background-color: rgba(15, 15, 15, 0.85);
 }
 
-/* -------------------------------------------------------------
-   TODO 3 — NAV CONTAINER
-   .nav-container is the inner flex row inside the header:
-     - display: flex
-     - justify-content: space-between (logo on left, links/toggle on right)
-     - align-items: center
-     - max-width: 1100px, centered with margin: 0 auto
-     - padding: 0 var(--gap) (no vertical padding — height controls it)
-     - height: 64px (fixed height so the frosted glass is consistent)
-------------------------------------------------------------- */
-
 .nav-container {
-  /* TODO */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--gap);
+  height: 64px;
 }
 
 /* -------------------------------------------------------------
