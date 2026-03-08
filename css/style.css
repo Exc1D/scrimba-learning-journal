@@ -1,14 +1,11 @@
 /* =============================================================
    style.css — Global Styles, CSS Custom Properties, Reset
-   PRACTICE FILE — implement each TODO to rebuild the design.
    ============================================================= */
 
-/* -------------------------------------------------------------
-DESIGN TOKENS
-------------------------------------------------------------- */
+/* CUSTOM PROPERTIES */
 
 :root {
-  --bg: ##fafaf8;
+  --bg: #fafaf8;
   --bg-alt: #f0efec;
   --bg-dark: #151515;
   --text-primary: #1a1a1a;
@@ -26,31 +23,24 @@ DESIGN TOKENS
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* -------------------------------------------------------------
-DARK MODE
-------------------------------------------------------------- */
+/* DARK MODE */
 
 [data-theme="dark"] {
-  [data-theme="dark"] {
-    --bg: #0f0f0f;
-    --bg-alt: #181818;
-    --bg-dark: #080808;
-    --text-primary: #ececec;
-    --text-secondary: #888888;
-    --accent: #dc143c;
-    --accent-subtle: rgba(220, 20, 60, 0.1);
-    --accent-glow: rgba(220, 20, 60, 0.22);
-    --border: #252525;
-    --border-light: #1e1e1e;
-    --shadow: rgba(0, 0, 0, 0.4);
-  }
+  --bg: #0f0f0f;
+  --bg-alt: #181818;
+  --bg-dark: #080808;
+  --text-primary: #ececec;
+  --text-secondary: #888888;
+  --accent: #dc143c;
+  --accent-subtle: rgba(220, 20, 60, 0.1);
+  --accent-glow: rgba(220, 20, 60, 0.22);
+  --border: #252525;
+  --border-light: #1e1e1e;
+  --shadow: rgba(0, 0, 0, 0.4);
 }
 
-/* -------------------------------------------------------------
-CSS RESET
-------------------------------------------------------------- */
+/* CSS RESET */
 
-/* TODO: add reset rules here */
 *,
 *::before,
 *::after {
@@ -63,9 +53,7 @@ img {
   display: block;
   max-width: 100%;
 }
-/* -------------------------------------------------------------
-BASE BODY & LINK STYLES
-------------------------------------------------------------- */
+
 body {
   min-height: 100vh;
   display: flex;
@@ -76,7 +64,11 @@ body {
   line-height: 1.7;
   transition:
     background-color var(--transition),
-    color var(var(--transition));
+    color var(--transition);
+}
+
+main {
+  flex: 1;
 }
 
 a {
@@ -87,9 +79,9 @@ a {
 a:hover {
   text-decoration: none;
 }
-/* -------------------------------------------------------------
-ANIMATIONS
-------------------------------------------------------------- */
+
+/* KEYFRAME ANIMATIONS */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -110,23 +102,23 @@ ANIMATIONS
   }
 }
 
+/* Page-level entry animation */
 main {
-  animation: fadeIn 0.25s ease both;
+  animation: fadeIn 0.35s ease both;
 }
 
-/* -------------------------------------------------------------
-AVATAR
-------------------------------------------------------------- */
+/* AVATAR */
 
 .avatar {
   width: 108px;
   height: 108px;
   border-radius: 50%;
   object-fit: cover;
-  border: var(--border);
+  margin-bottom: 1rem;
+  border: 3px solid var(--border);
   transition:
     border-color var(--transition),
-    transform var(--transition);
+    transform 0.3s ease;
 }
 
 .avatar:hover {
@@ -134,12 +126,10 @@ AVATAR
   transform: scale(1.05);
 }
 
-/* -------------------------------------------------------------
- ABOUT PAGE LAYOUT
-------------------------------------------------------------- */
+/* ABOUT PAGE */
 
 .about-section {
-  padding: 4rem 0;
+  padding: 5rem var(--gap);
   max-width: 680px;
   margin: 0 auto;
 }
@@ -177,16 +167,13 @@ AVATAR
   letter-spacing: 0.02em;
 }
 
-/* -------------------------------------------------------------
-SKILLS
-------------------------------------------------------------- */
-
 .skills-list {
   list-style: none;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 .skills-list li {
@@ -196,7 +183,10 @@ SKILLS
   border-radius: var(--radius);
   font-family: var(--font-mono);
   font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   border: 1px solid var(--border);
+  cursor: default;
   transition:
     transform var(--transition),
     background var(--transition),
@@ -210,7 +200,7 @@ SKILLS
   background: var(--accent);
   color: #fff;
   border-color: var(--accent);
-  box-shadow: var(--accent-glow);
+  box-shadow: 0 4px 12px var(--accent-glow);
 }
 
 /* POST ARTICLE */
@@ -286,23 +276,16 @@ SKILLS
   margin-top: 1.5rem;
 }
 
-/* -------------------------------------------------------------
-   TODO 10 — READING PROGRESS BAR
-   A thin bar fixed at the very top of the viewport that grows
-   from left to right as the user scrolls down the article.
-   JavaScript controls the width via: bar.style.width = X + '%'
-
-   CSS requirements:
-     - position: fixed (stays at top while scrolling)
-     - top: 0, left: 0
-     - height: 2px (thin and subtle)
-     - background: --accent
-     - z-index: 200 (above the sticky header at z-index 100)
-     - width: 0% initial (JS drives it from there)
-     - pointer-events: none (so it never blocks clicks)
-     - transition: width 0.1s linear (smooth fill, not jumpy)
-------------------------------------------------------------- */
+/* READING PROGRESS BAR */
 
 .reading-progress {
-  /* TODO */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--accent);
+  z-index: 200;
+  width: 0%;
+  transition: width 0.1s linear;
+  pointer-events: none;
 }
