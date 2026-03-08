@@ -1,26 +1,6 @@
 /* =============================================================
    footer.css — Footer Styles
-   PRACTICE FILE — implement each TODO to rebuild the design.
    ============================================================= */
-
-:root {
-  --bg: #fafaf8;
-  --bg-alt: #f0efec;
-  --bg-dark: #151515;
-  --text-primary: #1a1a1a;
-  --text-secondary: #6b6b6b;
-  --accent: #dc143c;
-  --accent-subtle: rgba(220, 20, 60, 0.08);
-  --accent-glow: rgba(220, 20, 60, 0.18);
-  --border: #e2e2de;
-  --border-light: #ebebea;
-  --shadow: rgba(0, 0, 0, 0.06);
-  --font-sans: "Outfit", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", "Fira Code", monospace;
-  --radius: 8px;
-  --gap: 1.5rem;
-  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1) ease;
-}
 
 footer {
   background-color: var(--bg-dark);
@@ -30,20 +10,13 @@ footer {
 }
 
 .footer-container {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-}
-
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
-  }
 }
 
 .footer-container .nav-logo {
@@ -57,39 +30,30 @@ footer {
 }
 
 .footer-container .nav-logo:hover {
-  letter-spacing: 0.065em;
+  letter-spacing: 0.06em;
   color: #fff;
 }
 
-/* -------------------------------------------------------------
-   TODO 4 — COPYRIGHT TEXT
-   The copyright paragraph should feel like a timestamp or
-   version number — small and technical:
-     - font-family: --font-mono (monospace feels like metadata)
-     - font-size: 0.7rem
-     - letter-spacing: 0.04em
-     - color: rgba(250, 250, 250, 0.35) (very muted — secondary info)
-------------------------------------------------------------- */
-
 .footer-container p {
-  /* TODO */
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: rgba(250, 250, 250, 0.35);
 }
 
-/* -------------------------------------------------------------
-   TODO 5 — FOOTER LINKS (if any are added later)
-   Keep link styles consistent with the dark footer background:
-     - color: rgba(250, 250, 250, 0.6) (dimmed white)
-     - text-decoration: none
-     - transition: color
-
-   On hover:
-     - color: rgba(250, 250, 250, 0.95) (near full white)
-------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
 
 footer a {
-  /* TODO */
+  color: rgba(250, 250, 250, 0.6);
+  text-decoration: none;
+  transition: color var(--transition);
 }
 
 footer a:hover {
-  /* TODO */
+  color: rgba(250, 250, 250, 0.95);
 }
