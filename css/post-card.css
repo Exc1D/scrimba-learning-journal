@@ -21,15 +21,21 @@
 ------------------------------------------------------------- */
 
 .posts-section {
-  /* TODO */
+  padding: 0;
 }
 
 .posts-container {
-  /* TODO */
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem var(--gap);
+  display: flex;
+  flex-direction: column;
 }
 
 .posts-grid {
-  /* TODO: MUST include display: grid */
+  display: grid;
+  grid-template-columns: repeat(autofill, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
 /* -------------------------------------------------------------
