@@ -130,54 +130,36 @@ header {
   overflow: visible;
 }
 
-/* -------------------------------------------------------------
-   TODO 9 — SUN & MOON ICON CROSS-FADE (the animated SVG swap)
-   The SVG contains two <g> groups: .sun-icon and .moon-icon.
-   Both sit in the same 24×24 viewBox, stacked on top of each other.
-   You animate between them using opacity + transform.
-
-   Both icons share base transition properties:
-     - transform-box: fill-box
-       (makes transform-origin relative to the element itself,
-       not the SVG canvas — required for rotation to work right)
-     - transform-origin: center
-     - transition:
-         opacity 0.3s ease,
-         transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)
-       The cubic-bezier here is a "spring" curve — it slightly
-       overshoots then settles, giving a satisfying bounce.
-
-   LIGHT MODE (default):
-     - .sun-icon: opacity 1, scale(1) rotate(0deg)  — visible
-     - .moon-icon: opacity 0, scale(0.3) rotate(90deg)  — hidden,
-       rotated and shrunken so it "flies in" when dark mode activates
-
-   DARK MODE (when [data-theme="dark"] is on html):
-     - .sun-icon: opacity 0, scale(0.3) rotate(-90deg) — hidden
-     - .moon-icon: opacity 1, scale(1) rotate(0deg)  — visible
-------------------------------------------------------------- */
-
 .sun-icon,
 .moon-icon {
-  /* TODO: shared transition and transform-box properties */
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    opacity 0.3s ease,
+    transform 0.4s cubic-bezier(0.034, 1, 56, 0.64, 1);
 }
 
 /* Light mode states */
 .sun-icon {
-  /* TODO: visible state */
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
 }
 
 .moon-icon {
+  opacity: 0;
+  transform: scale(0.3) rotate(90deg);
   /* TODO: hidden state */
 }
 
 /* Dark mode states */
 [data-theme="dark"] .sun-icon {
-  /* TODO: hidden state */
+  opacity: 0;
+  transform: scale(0.3) rotate(-90deg);
 }
 
 [data-theme="dark"] .moon-icon {
-  /* TODO: visible state */
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
 }
 
 /* -------------------------------------------------------------
