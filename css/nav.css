@@ -87,10 +87,6 @@ header {
 
 /* -------------------------------------------------------------
    TODO 6 — THEME TOGGLE BUTTON (the circular icon button)
-
-
-   Active state (click feedback):
-     - transform: scale(0.88)
 ------------------------------------------------------------- */
 
 .theme-toggle {
@@ -121,30 +117,17 @@ header {
   transform: scale(0.88);
 }
 
-/* -------------------------------------------------------------
-   TODO 7 — DARK MODE TOGGLE GLOW
-   In dark mode, the toggle button should already look "activated"
-   to hint that clicking will bring light back. Apply an
-   always-on version of the hover styles:
-     - background: --accent-subtle
-     - border-color: --accent
-     - color: --accent
-
-   Selector: [data-theme="dark"] .theme-toggle
-------------------------------------------------------------- */
-
-/* TODO */
-
-/* -------------------------------------------------------------
-   TODO 8 — SVG ICON SIZING
-   .toggle-icon is the <svg> inside the button:
-     - width: 17px, height: 17px
-     - display: block
-     - overflow: visible (rays of sun icon extend beyond bounds)
-------------------------------------------------------------- */
+[data-theme="dark"] .theme-toggle {
+  background-color: var(--accent-subtle);
+  border-color: var(--accent);
+  color: var(--accent);
+}
 
 .toggle-icon {
-  /* TODO */
+  width: 17px;
+  height: 17px;
+  display: block;
+  overflow: visible;
 }
 
 /* -------------------------------------------------------------
