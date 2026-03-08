@@ -46,35 +46,19 @@ footer {
   }
 }
 
-/* -------------------------------------------------------------
-   TODO 3 — FOOTER LOGO (letter-spacing animation on hover)
-   The .nav-logo inside the footer needs different colors than
-   the header version, so target it specifically:
-   .footer-container .nav-logo
-
-   Base styles:
-     - font-weight: 700
-     - color: rgba(250, 250, 250, 0.9) (slightly dimmed white)
-     - font-size: 1.05rem
-     - letter-spacing: -0.02em (slightly tight by default)
-     - transition: letter-spacing 0.35s ease, color var(--transition)
-       Note: use a separate easing for letter-spacing — it needs
-       a longer, smoother transition than color.
-
-   Hover "surprise" — the logo stretches:
-     - letter-spacing: 0.06em (expands outward — total swing of 0.08em)
-     - color: #fff (full white)
-
-   This is a simple but memorable interaction: letters physically
-   spread apart like a breath, then contract when you leave.
-------------------------------------------------------------- */
-
 .footer-container .nav-logo {
-  /* TODO */
+  font-weight: 700;
+  color: rgba(250, 250, 250, 0.9);
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  transition:
+    letter-spacing 0.35s ease,
+    color var(--transition);
 }
 
 .footer-container .nav-logo:hover {
-  /* TODO */
+  letter-spacing: 0.065em;
+  color: #fff;
 }
 
 /* -------------------------------------------------------------
