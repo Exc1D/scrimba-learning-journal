@@ -3,42 +3,46 @@
    PRACTICE FILE — implement each TODO to rebuild the design.
    ============================================================= */
 
-/* -------------------------------------------------------------
-   TODO 1 — FOOTER BASE
-   The footer uses a very dark background to contrast with the
-   rest of the page:
-     - background-color: --bg-dark (near black)
-     - color: rgba(250, 250, 250, 0.85) (soft white, not harsh)
-     - padding: 2.5rem var(--gap)
-     - transition: background-color (for dark/light mode switch)
-------------------------------------------------------------- */
-
-footer {
-  /* TODO */
+:root {
+  --bg: #fafaf8;
+  --bg-alt: #f0efec;
+  --bg-dark: #151515;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b6b6b;
+  --accent: #dc143c;
+  --accent-subtle: rgba(220, 20, 60, 0.08);
+  --accent-glow: rgba(220, 20, 60, 0.18);
+  --border: #e2e2de;
+  --border-light: #ebebea;
+  --shadow: rgba(0, 0, 0, 0.06);
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --radius: 8px;
+  --gap: 1.5rem;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1) ease;
 }
 
-/* -------------------------------------------------------------
-   TODO 2 — FOOTER CONTAINER
-   .footer-container lays out logo and copyright side by side:
-     - max-width: 1100px, margin: 0 auto (centered)
-     - display: flex
-     - justify-content: space-between
-     - align-items: center
-     - flex-wrap: wrap (wraps to column on narrow screens)
-     - gap: 1rem
-
-   On mobile (max-width: 768px):
-     - flex-direction: column
-     - text-align: center
-------------------------------------------------------------- */
+footer {
+  background-color: var(--bg-dark);
+  color: rgba(250, 250, 250, 0.85);
+  padding: 2.5rem var(--gap);
+  transition: background-color var(--transition);
+}
 
 .footer-container {
-  /* TODO */
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 @media (max-width: 768px) {
   .footer-container {
-    /* TODO */
+    flex-direction: column;
+    text-align: center;
   }
 }
 
