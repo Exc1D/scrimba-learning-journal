@@ -20,7 +20,7 @@
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
   --radius: 8px;
   --gap: 1.5rem;
-  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1) ease;
 }
 
 /* DARK MODE */
