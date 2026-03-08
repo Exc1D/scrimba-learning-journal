@@ -3,22 +3,24 @@
    PRACTICE FILE — implement each TODO to rebuild the design.
    ============================================================= */
 
-/* -------------------------------------------------------------
-   TODO 1 — POSTS GRID (CSS Grid layout)
-   .posts-section is the outer wrapper (no padding needed here).
-   .posts-container is the inner centered wrapper:
-     - max-width: 1100px, margin: 0 auto
-     - padding: 3rem var(--gap)
-     - display: flex, flex-direction: column (stacks search,
-       grid, and load-more button vertically)
-
-   .posts-grid is the actual grid:
-     - display: grid  ← CRITICAL — without this, nothing works
-     - grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
-       This creates a responsive grid: cards are at least 300px
-       wide, and as many columns fit as the screen allows.
-     - gap: 2rem
-------------------------------------------------------------- */
+:root {
+  --bg: #fafaf8;
+  --bg-alt: #f0efec;
+  --bg-dark: #151515;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b6b6b;
+  --accent: #dc143c;
+  --accent-subtle: rgba(220, 20, 60, 0.08);
+  --accent-glow: rgba(220, 20, 60, 0.18);
+  --border: #e2e2de;
+  --border-light: #ebebea;
+  --shadow: rgba(0, 0, 0, 0.06);
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --radius: 8px;
+  --gap: 1.5rem;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 .posts-section {
   padding: 0;
@@ -38,30 +40,24 @@
   gap: 2rem;
 }
 
-/* -------------------------------------------------------------
-   TODO 2 — POST CARD (base styles)
-   .post-card is the card container:
-     - background: --bg
-     - border: 1px solid --border-light
-     - border-radius: --radius
-     - overflow: hidden (clips the image zoom)
-     - cursor: pointer
-     - position: relative (needed for the ::before accent line)
-     - Transition: transform, border-color, box-shadow
-     - animation: fadeInUp 0.45s ease both (entrance animation)
-
-   Hover:
-     - transform: translateY(-4px) — card lifts up
-     - border-color: --border
-     - box-shadow: 0 8px 24px var(--shadow)
-------------------------------------------------------------- */
-
 .post-card {
-  /* TODO */
+  background-color: var(--bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition:
+    tansform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+  animation: fadeInUp 0.45s ease both;
 }
 
 .post-card:hover {
-  /* TODO */
+  transform: translateY(-4px);
+  border-color: var(--border);
+  box-shadow: 0 8px 24px var(--shadow);
 }
 
 /* -------------------------------------------------------------
