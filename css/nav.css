@@ -3,25 +3,16 @@
    PRACTICE FILE — implement each TODO to rebuild the design.
    ============================================================= */
 
-/* -------------------------------------------------------------
-   TODO 1 — STICKY FROSTED GLASS HEADER
-   The header should stick to the top of the page as the user
-   scrolls (position: sticky, top: 0).
-
-   Instead of a solid background, use a semi-transparent one
-   combined with a blur effect to create a "frosted glass" look:
-     - background-color: rgba(250, 250, 248, 0.85)
-       (85% opacity — you can see page content through it)
-     - backdrop-filter: blur(16px)
-     - -webkit-backdrop-filter: blur(16px) (Safari prefix)
-     - border-bottom: 1px solid var(--border)
-     - z-index: 100 (above page content, below progress bar)
-     - transition: background-color and border-color using
-       var(--transition) so dark mode switches smoothly
-------------------------------------------------------------- */
-
 header {
-  /* TODO */
+  background-color: rgba(250, 250, 248, 0.85);
+  backdrop-filter: blur(16px);
+  /* Safari support */
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  transition:
+    background-color var(--transition),
+    border-color var(--transition);
 }
 
 /* -------------------------------------------------------------
