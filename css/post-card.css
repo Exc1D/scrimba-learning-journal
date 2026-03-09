@@ -142,6 +142,7 @@
   line-height: 1.6;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -159,31 +160,30 @@
 
 /* -------------------------------------------------------------
    TODO 7 — HERO SECTION (Ken Burns animation)
-   .hero wraps the featured post at the top of the home page:
-     - position: relative (needed for gradient overlay + card)
-     - overflow: hidden (clips the zoom animation)
-
-   .hero img:
-     - width: 100%, aspect-ratio: 16/9, object-fit: cover
-     - animation: heroZoom 12s ease both
-
-   Define @keyframes heroZoom:
-     from { transform: scale(1.05); }
-     to   { transform: scale(1); }
-   This is the Ken Burns effect — a slow zoom that adds life
-   to the static image. 12s is long enough to feel cinematic
-   without being distracting.
+   
+  
 ------------------------------------------------------------- */
 
 .hero {
-  /* TODO */
+  position: relative;
+  overflow: hidden;
 }
 
 .hero img {
-  /* TODO */
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  animation: heroZoom 12s ease both;
 }
 
-/* TODO: define @keyframes heroZoom */
+@keyframes heroZoom {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 
 /* -------------------------------------------------------------
    TODO 8 — MOBILE HERO CARD (below the image on small screens)
