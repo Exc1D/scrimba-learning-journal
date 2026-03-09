@@ -60,21 +60,24 @@
   box-shadow: 0 8px 24px var(--shadow);
 }
 
-/* -------------------------------------------------------------
-   TODO 3 — STAGGERED CARD ENTRANCE ANIMATION
-   When multiple cards appear at once, staggering their entrance
-   makes it feel more natural — like they're loading one by one.
-
-   Use nth-child with animation-delay:
-     :nth-child(1) { animation-delay: 0.04s; }
-     :nth-child(2) { animation-delay: 0.10s; }
-     :nth-child(3) { animation-delay: 0.16s; }
-     ... and so on up to 6 cards.
-
-   The delay increases by 0.06s per card.
-------------------------------------------------------------- */
-
-/* TODO: add stagger delays for cards 1–6 */
+.post-card:nth-child(1) {
+  animation-delay: 0.04s;
+}
+.post-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.post-card:nth-child(3) {
+  animation-delay: 0.16s;
+}
+.post-card:nth-child(4) {
+  animation-delay: 0.22s;
+}
+.post-card:nth-child(5) {
+  animation-delay: 0.28s;
+}
+.post-card:nth-child(6) {
+  animation-delay: 0.34s;
+}
 
 /* -------------------------------------------------------------
    TODO 4 — ACCENT LINE HOVER EFFECT (::before pseudo-element)
@@ -102,11 +105,20 @@
 ------------------------------------------------------------- */
 
 .post-card::before {
-  /* TODO */
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
 }
 
 .post-card:hover::before {
-  /* TODO */
+  transform: scaleY(1);
+  transform-origin: top;
 }
 
 /* -------------------------------------------------------------
@@ -124,11 +136,15 @@
 ------------------------------------------------------------- */
 
 .post-card img {
-  /* TODO */
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .post-card:hover img {
-  /* TODO */
+  transform: scale(1.04);
+  overflow: hidden;
 }
 
 /* -------------------------------------------------------------
