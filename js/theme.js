@@ -1,86 +1,132 @@
 // =============================================================
-// theme.js — Theme Toggle & Hamburger Menu
+// post.js — Single Post Page JavaScript
 // PRACTICE FILE — implement each TODO to rebuild the functionality.
+// data.js is loaded before this script in post.html, so `posts` is available.
 // =============================================================
 
 // -------------------------------------------------------------
-// TODO 1 — PERSIST THEME ACROSS PAGE LOADS
-// When the page loads, check if the user previously chose dark mode.
-// Use localStorage.getItem("theme") to retrieve the saved value.
-// If it equals "dark", immediately apply the dark theme by setting
-// the data-theme attribute on the <html> element:
-//   document.documentElement.setAttribute("data-theme", "dark")
+// TODO 1 — READ THE SLUG FROM THE URL
+// The URL looks like: post.html?slug=my-post-title
+// URLSearchParams lets you read query parameters by name.
 //
-// This must run BEFORE the DOM paints to avoid a flash of wrong theme.
-// That's why theme.js is the FIRST script loaded on every page.
-// -------------------------------------------------------------
-
-// TODO: read from localStorage and apply saved theme on load
-
-// -------------------------------------------------------------
-// TODO 2 — SELECT THE TOGGLE BUTTON
-// Use document.querySelector() to find the .theme-toggle button.
-// Store it in a const — you'll use it in multiple places below.
-// -------------------------------------------------------------
-
-// TODO: const themeToggle = ...
-
-// -------------------------------------------------------------
-// TODO 3 — ACCESSIBILITY HINT FUNCTION
-// Create a function called updateToggleHint() that:
-//   1. Checks if the current theme is dark by reading the
-//      data-theme attribute from document.documentElement
-//   2. Updates the button's title attribute:
-//        dark  → "Switch to light mode"
-//        light → "Switch to dark mode"
-//   3. Updates the button's aria-label to the same string
-//      (aria-label is what screen readers announce)
+//   const params = new URLSearchParams(window.location.search)
+//   const slug = params.get("slug")
 //
-// Guard against themeToggle being null (the button might not
-// exist on a page that doesn't have a nav).
-//
-// Call this function immediately after defining it so the hint
-// is correct on initial page load.
+// window.location.search is the "?slug=..." part of the URL.
+// params.get("slug") returns the value, or null if it's missing.
 // -------------------------------------------------------------
 
-function updateToggleHint() {
-  // TODO
-}
-
-// TODO: call updateToggleHint() here
+// TODO: const params = ...
+// TODO: const slug = ...
 
 // -------------------------------------------------------------
-// TODO 4 — THEME TOGGLE CLICK HANDLER
-// Add a "click" event listener to the themeToggle button.
-// On click:
-//   - Check if dark mode is currently active (read data-theme)
-//   - If dark:
-//       remove the data-theme attribute from document.documentElement
-//       save "light" to localStorage
-//   - If light:
-//       set data-theme="dark" on document.documentElement
-//       save "dark" to localStorage
-//   - Call updateToggleHint() to refresh accessibility text
+// TODO 2 — FIND THE MATCHING POST
+// Use the Array .find() method to locate the post whose slug
+// matches the one from the URL.
 //
-// Guard with: if (themeToggle) { ... }
+//   const post = posts.find((p) => p.slug === slug)
 //
-// Note: you do NOT need to change the SVG icon in JavaScript.
-// The CSS already handles the sun/moon swap using [data-theme="dark"]
-// selectors — changing the data-theme attribute is enough.
+// .find() returns the matching object, or undefined if none match.
 // -------------------------------------------------------------
 
-// TODO: add click event listener to themeToggle
+// TODO: const post = ...
 
 // -------------------------------------------------------------
-// TODO 5 — HAMBURGER MENU TOGGLE (mobile nav)
-// Select both .hamburger and .nav-links using querySelector.
-// Add a "click" event listener to the hamburger button.
-// On click: toggle the "open" class on the navLinks element.
-//   navLinks.classList.toggle("open")
+// TODO 3 — HANDLE "POST NOT FOUND"
+// If no post matched (bad URL, typo in slug), show a friendly
+// error message inside #post-content and stop here.
 //
-// The CSS handles the show/hide — .nav-links.open sets display: flex.
-//
-// Guard with: if (hamburger && navLinks) { ... }
+// Wrap all remaining code in an `if (post) { ... }` block
+// so it only runs when a valid post was found.
 // -------------------------------------------------------------
 
-// TODO: hamburger menu toggle
+// TODO: not found guard, then wrap the rest in if (post) { ... }
+
+// -------------------------------------------------------------
+// TODO 4 — RENDER THE HERO IMAGE
+// Inject an <img> tag into the #post-hero-image element.
+// Use post.image as the src and post.title as the alt text.
+// -------------------------------------------------------------
+
+// TODO: hero image
+
+// -------------------------------------------------------------
+// TODO 5 — RENDER THE FULL ARTICLE
+// Build and inject the post content into #post-content.
+//
+// The structure to produce:
+//
+//   <span class="tag">category</span>
+//   <h1>title</h1>
+//   <div class="post-meta">
+//     <span>author</span>
+//     <span>date</span>
+//   </div>
+//   <p>paragraph one</p>
+//   <p>paragraph two</p>
+//   ...
+//
+// post.body is an array of paragraph strings.
+// Turn it into <p> tags with:
+//   post.body.map((paragraph) => `<p>${paragraph}</p>`).join("")
+// -------------------------------------------------------------
+
+// TODO: article content
+
+// -------------------------------------------------------------
+// TODO 6 — UPDATE THE BROWSER TAB TITLE
+// Set document.title so the browser tab shows the post name
+// instead of the generic page title.
+// -------------------------------------------------------------
+
+// TODO: document.title = ...
+
+// -------------------------------------------------------------
+// TODO 7 (STRETCH) — RENDER "MORE POSTS"
+// Show up to 3 other posts at the bottom of the page.
+// Filter out the current post, then take the first 3 results.
+//
+//   const morePosts = posts.filter((p) => p.slug !== slug).slice(0, 3)
+//
+// Reuse your renderCard function from main.js, or copy it here —
+// post.html loads post.js, not main.js, so it needs to be available.
+//
+// Inject the cards into #more-posts-grid.
+// -------------------------------------------------------------
+
+// TODO: renderCard function (copy or write fresh)
+
+// TODO: more posts grid
+
+// -------------------------------------------------------------
+// TODO 8 (STRETCH) — LIKE BUTTON WITH LOCALSTORAGE
+// Track how many times this post has been liked and persist it.
+//
+// On page load:
+//   1. Read saved count: localStorage.getItem(`likes-${slug}`)
+//   2. Default to 0 if nothing saved
+//   3. Display the count in the #like-count span
+//
+// On #like-btn click:
+//   1. Read current count, add 1
+//   2. Write back: localStorage.setItem(`likes-${slug}`, newCount)
+//   3. Update #like-count text
+//
+// Note: #like-btn and #like-count must exist in post.html.
+// -------------------------------------------------------------
+
+// TODO: like button
+
+// -------------------------------------------------------------
+// TODO 9 (STRETCH) — READING TIME ESTIMATE
+// Average reading speed: 200 words per minute.
+//
+//   const wordCount = post.body.join(" ").split(/\s+/).length
+//   const minutes = Math.ceil(wordCount / 200)
+//   const readingTime = `${minutes} min read`
+//
+// Add a <span>${readingTime}</span> inside the post-meta
+// section you built in TODO 5.
+// -------------------------------------------------------------
+
+// TODO: reading time

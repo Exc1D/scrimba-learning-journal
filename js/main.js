@@ -1,13 +1,16 @@
 // =============================================================
 // main.js — Home Page JavaScript
-// Renders post cards into #posts-grid from the posts array in data.js.
+// PRACTICE FILE — implement each TODO to rebuild the functionality.
 // data.js is loaded before this script in index.html, so `posts` is available.
 // =============================================================
 
-// TODO 1: Write a function called renderCard(post) that:
-//   - Takes a single post object as its argument
+// -------------------------------------------------------------
+// TODO 1 — RENDER A SINGLE CARD
+// Write a function called renderCard(post) that:
+//   - Takes one post object as its argument
 //   - Returns an HTML string for one post card
-//   - The returned string should produce this structure:
+//
+// The HTML structure to produce:
 //
 //   <article class="post-card">
 //     <img src="..." alt="..." />
@@ -22,80 +25,106 @@
 //     </div>
 //   </article>
 //
-//   Use a template literal (backtick string) to build the HTML:
-//   function renderCard(post) {
-//     return `<article class="post-card">...</article>`
-//   }
+// Use a template literal (backtick string) so you can embed
+// post.image, post.title, post.category, post.slug, etc. directly.
+// -------------------------------------------------------------
 
 function renderCard(post) {
-  // Your implementation here
+  // TODO: return the HTML string
 }
 
-
-// TODO 2: Write a function called renderPosts(postsToRender) that:
+// -------------------------------------------------------------
+// TODO 2 — RENDER MULTIPLE CARDS
+// Write a function called renderPosts(postsToRender) that:
 //   - Accepts an array of post objects
-//   - Selects #posts-grid from the DOM
-//   - Sets its innerHTML to all the cards joined together
+//   - Selects the #posts-grid element from the DOM
+//   - Sets its innerHTML to all cards joined into one string
 //
-//   Hint: postsToRender.map(renderCard).join('') turns the array into one HTML string.
-//   document.querySelector('#posts-grid').innerHTML = postsToRender.map(renderCard).join('')
+// Hint: postsToRender.map(renderCard).join("") maps each post
+// through renderCard and glues the results into one big string.
+// -------------------------------------------------------------
 
 function renderPosts(postsToRender) {
-  // Your implementation here
+  // TODO: select #posts-grid and set its innerHTML
 }
 
+// -------------------------------------------------------------
+// TODO 3 — INITIAL RENDER
+// Call renderPosts with the full posts array to display all cards.
+// The `posts` variable comes from data.js which loads first.
+// -------------------------------------------------------------
 
-// TODO 3: Call renderPosts(posts) to render all posts on page load.
-//   `posts` is the array from data.js (loaded first in index.html).
+// TODO: renderPosts(...)
 
-
-// ----------------------------------------------------------------
-// STRETCH GOALS — complete the core TODOs above first
-// ----------------------------------------------------------------
-
-// TODO 4 (STRETCH — Search / Filter):
-//   Wire up the #search input so typing filters the post cards in real time.
-//   Add this after TODO 3.
+// -------------------------------------------------------------
+// TODO 4 (STRETCH) — SCROLL-TRIGGERED CARD ANIMATION
+// Make cards animate in only when they scroll into view, so the
+// user actually gets to see the animation play out.
 //
-//   const searchInput = document.querySelector('#search')
-//   searchInput?.addEventListener('input', () => {
-//     const query = searchInput.value.toLowerCase()
-//     const filtered = posts.filter(p =>
-//       p.title.toLowerCase().includes(query) ||
-//       p.category.toLowerCase().includes(query)
-//     )
-//     renderPosts(filtered)
-//   })
+// How it works:
+// - Cards start invisible (opacity: 0, no animation class)
+// - An IntersectionObserver watches each card
+// - When a card enters the viewport, add an "animate" class
+// - The CSS on .post-card.animate triggers the fadeInUp animation
+// - Stagger the delay based on the card's index in the grid
 //
-//   Note: the #search input must exist in index.html for this to work (see index.html TODO 6).
+// Steps:
+// 1. Create the observer:
+//      const cardObserver = new IntersectionObserver((entries) => {
+//        entries.forEach((entry) => {
+//          if (entry.isIntersecting) {
+//            const card = entry.target
+//            const index = Array.from(card.parentElement.children).indexOf(card)
+//            card.style.animationDelay = index * 0.06 + "s"
+//            card.classList.add("animate")
+//            cardObserver.unobserve(card) // stop watching once animated
+//          }
+//        })
+//      }, { threshold: 0.1 })
+//
+// 2. After setting innerHTML in renderPosts, observe each card:
+//      grid.querySelectorAll(".post-card").forEach((card) => {
+//        cardObserver.observe(card)
+//      })
+//
+// Note: update renderPosts to call the observer after rendering.
+// Note: the CSS must have .post-card { opacity: 0 } and
+//       .post-card.animate { animation: fadeInUp 0.45s ease both; opacity: 1 }
+// -------------------------------------------------------------
 
+// TODO: IntersectionObserver setup
 
-// TODO 5 (STRETCH — Load More Pagination):
-//   Render only 3 posts initially. Show a #load-more button that reveals 3 more on click.
-//   Hide the button when all posts are shown.
+// -------------------------------------------------------------
+// TODO 5 (STRETCH) — SEARCH / FILTER
+// Wire up the #search input so typing filters the post cards.
 //
-//   const PAGE_SIZE = 3
-//   let page = 1
-//   renderPosts(posts.slice(0, PAGE_SIZE))
+// Steps:
+// 1. Select the #search input
+// 2. Listen for the "input" event
+// 3. Get the query: searchInput.value.toLowerCase()
+// 4. Filter the posts array — check if the query appears in
+//    the title, category, or excerpt (all lowercased)
+// 5. Call renderPosts with the filtered array
 //
-//   document.querySelector('#load-more')?.addEventListener('click', () => {
-//     page++
-//     renderPosts(posts.slice(0, page * PAGE_SIZE))
-//     if (page * PAGE_SIZE >= posts.length) {
-//       document.querySelector('#load-more').style.display = 'none'
-//     }
-//   })
-//
-//   Note: replace the renderPosts(posts) call in TODO 3 with the slice version above.
-//   Note: the #load-more button must exist in index.html (see index.html TODO 7).
+// Note: the #search input must exist in index.html.
+// -------------------------------------------------------------
 
+// TODO: search/filter
 
-// TODO 6 (STRETCH — fetch() migration):
-//   Once you have moved posts to js/posts.json, wrap everything in an async function:
+// -------------------------------------------------------------
+// TODO 6 (STRETCH) — LOAD MORE PAGINATION
+// Show only 3 posts initially and reveal 3 more on each click
+// of the #load-more button.
 //
-//   async function init() {
-//     const posts = await fetch('./js/posts.json').then(r => r.json())
-//     renderPosts(posts)
-//     // move your search and load-more setup here too
-//   }
-//   init()
+// Steps:
+// 1. Replace renderPosts(posts) with renderPosts(posts.slice(0, 3))
+// 2. Track the current page with: let currentPage = 1
+// 3. On #load-more click:
+//      currentPage++
+//      renderPosts(posts.slice(0, currentPage * 3))
+//      if all posts are shown, hide the button
+//
+// Note: the #load-more button must exist in index.html.
+// -------------------------------------------------------------
+
+// TODO: load more pagination
