@@ -160,10 +160,7 @@
 
 /* -------------------------------------------------------------
    TODO 7 — HERO SECTION (Ken Burns animation)
-   
-  
 ------------------------------------------------------------- */
-
 .hero {
   position: relative;
   overflow: hidden;
@@ -171,110 +168,106 @@
 
 .hero img {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
+  display: block;
   animation: heroZoom 12s ease both;
 }
 
 @keyframes heroZoom {
   from {
-    transform: scale(1.2);
+    transform: scale(1.05);
   }
   to {
     transform: scale(1);
   }
 }
 
-/* -------------------------------------------------------------
-   TODO 8 — MOBILE HERO CARD (below the image on small screens)
-   .hero-card contains the title, excerpt, and CTA button.
-   On mobile it sits BELOW the image like a normal content block:
-     - padding: 1.5rem var(--gap)
-     - background: --bg
-     - border-left: 3px solid --accent (accent line on left edge)
-     - transition: background and border-color
-
-   Typography:
-     - h1: clamp(1.35rem, 3.5vw, 2rem), 700 weight, tight leading
-     - p: 0.92rem, secondary color
-------------------------------------------------------------- */
-
+/* Mobile hero card */
 .hero-card {
-  /* TODO */
+  padding: 1.5rem var(--gap);
+  background: var(--bg);
+  border-radius: 0;
+  border-left: 3px solid var(--accent);
+  transition:
+    background var(--transition),
+    border-color var(--transition);
 }
 
 .hero-card h1 {
-  /* TODO */
+  font-size: clamp(1.35rem, 3.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin: 0.5rem 0 0.75rem;
 }
 
 .hero-card > p {
-  /* TODO */
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+  transition: color var(--transition);
 }
 
-/* -------------------------------------------------------------
-   TODO 9 — DESKTOP HERO: GRADIENT OVERLAY + FLOATING CARD
-   On screens wider than 768px, the card floats over the image:
-
-   First, add a dark gradient overlay using .hero::after:
-     - content: '', position: absolute, inset: 0
-     - background: a linear-gradient at ~110deg angle
-       from rgba(0,0,0,0.88) on the left (text side)
-       to rgba(0,0,0,0.15) on the right (photo side)
-     - pointer-events: none (so links below it still work)
-
-   Then, reposition .hero-card to float over the image:
-     - position: absolute
-     - bottom: 2.5rem, left: 3rem
-     - max-width: 440px
-     - padding: 0 0 0 1.5rem (only left padding)
-     - background: transparent (see through to the gradient)
-     - border-left: 3px solid rgba(255, 255, 255, 0.3)
-     - z-index: 1 (above the ::after overlay)
-     - animation: fadeInUp 0.7s ease 0.25s both
-
-   Override text colors for white-on-dark readability:
-     - .tag: rgba(255,255,255,0.55)
-     - h1: #fff
-     - p: rgba(255,255,255,0.7)
-
-   Override .btn styles on dark backgrounds:
-     - border-color: rgba(255,255,255,0.6), color: #fff,
-       background: transparent
-     - On hover: color becomes --text-primary (dark text)
-       because the ::before fill becomes rgba(255,255,255,0.95)
-------------------------------------------------------------- */
+/* Desktop: gradient overlay + floating card */
 
 @media (min-width: 768px) {
   .hero::after {
-    /* TODO: gradient overlay */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      110deg,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.6) 45%,
+      rgba(0, 0, 0, 0.15) 100%
+    );
+    pointer-events: none;
   }
 
   .hero-card {
-    /* TODO: floating card position */
+    position: absolute;
+    bottom: 2.5rem;
+    left: 3rem;
+    max-width: 440px;
+    padding: 0 0 0 1.5rem;
+    background: transparent;
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+    z-index: 1;
+    animation: fadeInUp 0.7s ease 0.25s both;
+    transition: border-color 0.35s ease;
+  }
+
+  .hero-card:hover {
+    border-left-color: rgba(255, 255, 255, 0.65);
   }
 
   .hero-card .tag {
-    /* TODO */
+    color: rgba(255, 255, 255, 0.55);
   }
 
   .hero-card h1 {
-    /* TODO */
+    color: #fff;
   }
 
   .hero-card > p {
-    /* TODO */
+    color: rgba(255, 255, 255, 0.7);
   }
 
   .hero-card .btn {
-    /* TODO: button styles on dark background */
+    border-color: rgba(255, 255, 255, 0.6);
+    color: #fff;
+    background: transparent;
   }
 
   .hero-card .btn::before {
-    /* TODO: white fill for hover wipe */
+    background: rgba(255, 255, 255, 0.95);
   }
 
   .hero-card .btn:hover {
-    /* TODO */
+    color: var(--text-primary);
+    border-color: transparent;
   }
 }
 
