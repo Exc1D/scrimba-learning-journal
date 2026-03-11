@@ -30,7 +30,20 @@
 // -------------------------------------------------------------
 
 function renderCard(post) {
-  // TODO: return the HTML string
+  return `
+  <article class="post-card">
+    <img src="${post.image}" alt="${post.title}" />
+    <div class="card-body">
+      <span class="tag">${post.category}</span>
+      <h3><a href="post.html?slug=${post.slug}">${post.title}</a></h3>
+      <p class="excerpt">${post.excerpt}</p>
+      <div class="card-meta">
+        <span>${post.author}</span>
+        <span>${post.date}</span>
+      </div>
+    </div>
+  </article>
+  `;
 }
 
 // -------------------------------------------------------------
@@ -46,6 +59,8 @@ function renderCard(post) {
 
 function renderPosts(postsToRender) {
   // TODO: select #posts-grid and set its innerHTML
+  const grid = document.getElementById("posts-grid");
+  grid.innerHTML = postsToRender.map(renderCard).join("");
 }
 
 // -------------------------------------------------------------
@@ -53,7 +68,7 @@ function renderPosts(postsToRender) {
 // Call renderPosts with the full posts array to display all cards.
 // The `posts` variable comes from data.js which loads first.
 // -------------------------------------------------------------
-
+renderPosts(posts);
 // TODO: renderPosts(...)
 
 // -------------------------------------------------------------
