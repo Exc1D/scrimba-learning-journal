@@ -236,7 +236,7 @@
   }
 
   .hero-card:hover {
-    border-left-color: var(--accent);
+    border-left-color: rgba(255, 255, 255, 0.65);
   }
 
   .hero-card .tag {

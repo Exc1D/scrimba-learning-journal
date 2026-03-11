@@ -46,21 +46,29 @@ function renderCard(post) {
   `;
 }
 
-// -------------------------------------------------------------
-// TODO 2 — RENDER MULTIPLE CARDS
-// Write a function called renderPosts(postsToRender) that:
-//   - Accepts an array of post objects
-//   - Selects the #posts-grid element from the DOM
-//   - Sets its innerHTML to all cards joined into one string
-//
-// Hint: postsToRender.map(renderCard).join("") maps each post
-// through renderCard and glues the results into one big string.
-// -------------------------------------------------------------
+const cardObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const card = entry.target;
+        const index = Array.from(card.parentElement.children).indexOf(card);
+        card.style.animationDelay = index * 0.06 + "s";
+        card.classList.add("animate");
+        cardObserver.unobserve(card);
+      }
+    });
+  },
+  { threshold: 0.1 },
+);
 
 function renderPosts(postsToRender) {
-  // TODO: select #posts-grid and set its innerHTML
   const grid = document.getElementById("posts-grid");
-  grid.innerHTML = postsToRender.map(renderCard).join("");
+  if (grid) {
+    grid.innerHTML = postsToRender.map(renderCard).join("");
+    grid.querySelectorAll(".post-card").forEach((card) => {
+      cardObserver.unobserve(card);
+    });
+  }
 }
 
 // -------------------------------------------------------------
