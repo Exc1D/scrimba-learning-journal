@@ -11,27 +11,10 @@
 
 const posts = [
   {
-    slug: "traded-my-rifle-for-a-keyboard",
-    title: "What I Learned About CSS Grid",
-    category: "Life",
-    date: "March 1, 2026",
-    author: "Exxeed",
-    image: "assets/images/soldiers-marching.jpg",
-    excerpt: "I traded my rifle for a keyboard and a cup of coffee. ",
-    body: [
-      "Life doesn't always turn out as you always wanted, learned that the painful way. With a rifle on my shoulder, I used to march the hallowed grounds of the Borromeo Field in the Philippine Military Academy.",
-      "Now I am drowning in codes and docs with me and my PC against the world. The shift was hard but it's nothing compared to how hard my life used to be.",
-      "Although I'm glad to be not waking up with the morning bugle anymore, there's just some parts of the military life that can never be replaced by civilian life.",
-      "Do I miss it? Yes. Do I have some regrets? Maybe a little. Would I want to go back? Probably not.",
-      "I think the universe placed me exactly where I need to be, all that's left for me is to put in the work to become the man I need to be. One cup of coffee at a time.",
-    ],
-  },
-  {
     slug: "what-i-learned-about-css-grid",
     title: "What I Learned About CSS Grid",
     category: "CSS",
     date: "March 1, 2026",
-    author: "Your Name",
     image: "assets/images/post-1.jpg",
     excerpt:
       "CSS Grid finally clicked for me this week. Here's what made it make sense.",
@@ -46,7 +29,6 @@ const posts = [
     title: "Why Mobile-First Actually Makes Sense",
     category: "Responsive Design",
     date: "February 22, 2026",
-    author: "Your Name",
     image: "assets/images/post-2.jpg",
     excerpt:
       "I resisted mobile-first for months. Here's what finally convinced me.",
@@ -61,7 +43,6 @@ const posts = [
     title: "Array Methods That Changed How I Write JS",
     category: "JavaScript",
     date: "February 15, 2026",
-    author: "Your Name",
     image: "assets/images/post-3.jpg",
     excerpt:
       "map, filter, and reduce went from intimidating to essential in one week.",
@@ -76,7 +57,6 @@ const posts = [
     title: "Flexbox vs Grid: When to Use Which",
     category: "CSS",
     date: "February 8, 2026",
-    author: "Your Name",
     image: "assets/images/post-4.jpg",
     excerpt:
       "A practical mental model for choosing between CSS Flexbox and Grid.",
@@ -84,6 +64,21 @@ const posts = [
       "The question I kept googling: should I use flexbox or grid here? After building several projects with both, here's the mental model that works for me.",
       "Flexbox is one-dimensional. Use it when you want a row of things and don't care about aligning them to a grid — a nav bar, a row of buttons, a card's meta row. It distributes space along one axis.",
       "Grid is two-dimensional. Use it when you're laying out a page section and you need items to align in both rows and columns — a card grid, a page layout with a sidebar, a photo gallery. If you're thinking in terms of rows AND columns, use Grid.",
+    ],
+  },
+  {
+    slug: "traded-my-rifle-for-a-keyboard",
+    title: "₣rom a Soldier to a Software Developer",
+    category: "Life",
+    date: "February 1, 2026",
+    image: "assets/images/soldiers-marching.jpg",
+    excerpt: "I traded my rifle for a keyboard and a cup of coffee. ",
+    body: [
+      "Life doesn't always turn out as you always wanted, learned that the painful way. With a rifle on my shoulder, I used to march the hallowed grounds of the Borromeo Field in the Philippine Military Academy.",
+      "Now I am drowning in codes and docs with me and my PC against the world. The shift was hard but it's nothing compared to how hard my life used to be.",
+      "Although I'm glad to be not waking up with the morning bugle anymore, there's just some parts of the military life that can never be replaced by civilian life.",
+      "Do I miss it? Yes. Do I have some regrets? Maybe a little. Would I want to go back? Probably not.",
+      "I think the universe placed me exactly where I need to be, all that's left for me is to put in the work to become the man I need to be. One cup of coffee at a time.",
     ],
   },
 ];

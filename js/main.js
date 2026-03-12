@@ -12,7 +12,6 @@ function renderCard(post) {
       <h3><a href="post.html?slug=${post.slug}">${post.title}</a></h3>
       <p class="excerpt">${post.excerpt}</p>
       <div class="card-meta">
-        <span>${post.author}</span>
         <span>${post.date}</span>
       </div>
     </div>
