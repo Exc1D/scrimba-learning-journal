@@ -1,10 +1,11 @@
 // =============================================================
 // main.js — Home Page JavaScript
+// Renders post cards into #posts-grid from the posts array in data.js.
+// data.js is loaded before this script in index.html, so `posts` is available.
 // =============================================================
 
 function renderCard(post) {
-  return `
-  <article class="post-card">
+  return `<article class="post-card">
     <img src="${post.image}" alt="${post.title}" />
     <div class="card-body">
       <span class="tag">${post.category}</span>
@@ -15,8 +16,7 @@ function renderCard(post) {
         <span>${post.date}</span>
       </div>
     </div>
-  </article>
-  `;
+  </article>`;
 }
 
 const cardObserver = new IntersectionObserver(
@@ -35,23 +35,44 @@ const cardObserver = new IntersectionObserver(
 );
 
 function renderPosts(postsToRender) {
-  const grid = document.getElementById("posts-grid");
+  const grid = document.querySelector("#posts-grid");
   if (grid) {
     grid.innerHTML = postsToRender.map(renderCard).join("");
     grid.querySelectorAll(".post-card").forEach((card) => {
-      cardObserver.unobserve(card);
+      cardObserver.observe(card);
     });
   }
 }
 
-renderPosts(posts);
-// TODO: renderPosts(...)
+// Pagination settings
+const PAGE_SIZE = 3;
+let currentPage = 1;
 
-// TODO: search/filter
+// Initial render with pagination
+renderPosts(posts.slice(0, PAGE_SIZE * currentPage));
+
+// Hide load more button if all posts are shown
+const loadMoreBtn = document.querySelector("#load-more");
+if (loadMoreBtn && currentPage * PAGE_SIZE >= posts.length) {
+  loadMoreBtn.style.display = "none";
+}
+
+// Load more button click handler
+if (loadMoreBtn) {
+  loadMoreBtn.addEventListener("click", () => {
+    currentPage++;
+    renderPosts(posts.slice(0, PAGE_SIZE * currentPage));
+    if (currentPage * PAGE_SIZE >= posts.length) {
+      loadMoreBtn.style.display = "none";
+    }
+  });
+}
+
+// Search/filter functionality
 const searchInput = document.querySelector("#search");
 if (searchInput) {
   searchInput.addEventListener("input", () => {
-    const query = searchInput.ariaValueMax.toLowerCase();
+    const query = searchInput.value.toLowerCase();
     const filtered = posts.filter(
       (p) =>
         p.title.toLowerCase().includes(query) ||
@@ -59,23 +80,19 @@ if (searchInput) {
         p.excerpt.toLowerCase().includes(query),
     );
     renderPosts(filtered);
+    // Hide load more when filtering
+    if (loadMoreBtn) {
+      loadMoreBtn.style.display = "none";
+    }
   });
 }
 
-// -------------------------------------------------------------
-// TODO 6 (STRETCH) — LOAD MORE PAGINATION
-// Show only 3 posts initially and reveal 3 more on each click
-// of the #load-more button.
+// TODO 6 (STRETCH — fetch() migration):
+//   Once you have moved posts to js/posts.json, wrap everything in an async function:
 //
-// Steps:
-// 1. Replace renderPosts(posts) with renderPosts(posts.slice(0, 3))
-// 2. Track the current page with: let currentPage = 1
-// 3. On #load-more click:
-//      currentPage++
-//      renderPosts(posts.slice(0, currentPage * 3))
-//      if all posts are shown, hide the button
-//
-// Note: the #load-more button must exist in index.html.
-// -------------------------------------------------------------
-
-// TODO: load more pagination
+//   async function init() {
+//     const posts = await fetch('./js/posts.json').then(r => r.json())
+//     renderPosts(posts)
+//     // move your search and load-more setup here too
+//   }
+//   init()
