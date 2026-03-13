@@ -4,32 +4,9 @@
 // data.js is loaded before this script in post.html, so `posts` is available.
 // =============================================================
 
-// -------------------------------------------------------------
-// TODO 1 — READ THE SLUG FROM THE URL
-// The URL looks like: post.html?slug=my-post-title
-// URLSearchParams lets you read query parameters by name.
-//
-//   const params = new URLSearchParams(window.location.search)
-//   const slug = params.get("slug")
-//
-// window.location.search is the "?slug=..." part of the URL.
-// params.get("slug") returns the value, or null if it's missing.
-// -------------------------------------------------------------
-
-// TODO: const params = ...
-// TODO: const slug = ...
-
-// -------------------------------------------------------------
-// TODO 2 — FIND THE MATCHING POST
-// Use the Array .find() method to locate the post whose slug
-// matches the one from the URL.
-//
-//   const post = posts.find((p) => p.slug === slug)
-//
-// .find() returns the matching object, or undefined if none match.
-// -------------------------------------------------------------
-
-// TODO: const post = ...
+const params = new URLSearchParams(window.location.search);
+const slug = params.get("slug");
+const post = posts.find((p) => p.slug === slug);
 
 // -------------------------------------------------------------
 // TODO 3 — HANDLE "POST NOT FOUND"
