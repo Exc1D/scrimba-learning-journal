@@ -4,29 +4,23 @@
 // data.js is loaded before this script in post.html, so `posts` is available.
 // =============================================================
 
+// Search for the slug and match using .find()
 const params = new URLSearchParams(window.location.search);
 const slug = params.get("slug");
 const post = posts.find((p) => p.slug === slug);
 
-// -------------------------------------------------------------
-// TODO 3 — HANDLE "POST NOT FOUND"
-// If no post matched (bad URL, typo in slug), show a friendly
-// error message inside #post-content and stop here.
-//
-// Wrap all remaining code in an `if (post) { ... }` block
-// so it only runs when a valid post was found.
-// -------------------------------------------------------------
+if (!post) {
+  const postContent = document.getElementById("post-content");
+  postContent.textContent = "Oops! This post can't be found. :(";
+  return;
+}
 
-// TODO: not found guard, then wrap the rest in if (post) { ... }
-
-// -------------------------------------------------------------
-// TODO 4 — RENDER THE HERO IMAGE
-// Inject an <img> tag into the #post-hero-image element.
-// Use post.image as the src and post.title as the alt text.
-// -------------------------------------------------------------
-
-// TODO: hero image
-
+// Inject Hero image
+const postHeroImg = document.getElementById("post-hero-image");
+let newImg = document.createElement("img");
+newImg.setAttribute("src", post.image);
+newImg.setAttribute("alt", post.title);
+postHeroImg.appendChild(newImg);
 // -------------------------------------------------------------
 // TODO 5 — RENDER THE FULL ARTICLE
 // Build and inject the post content into #post-content.
