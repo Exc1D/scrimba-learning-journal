@@ -4,15 +4,15 @@
 // data.js is loaded before this script in post.html, so `posts` is available.
 // =============================================================
 
+const postContent = document.getElementById("post-content");
+
 // Search for the slug and match using .find()
 const params = new URLSearchParams(window.location.search);
 const slug = params.get("slug");
 const post = posts.find((p) => p.slug === slug);
 
 if (!post) {
-  const postContent = document.getElementById("post-content");
   postContent.textContent = "Oops! This post can't be found. :(";
-  return;
 }
 
 // Inject Hero image
@@ -21,28 +21,16 @@ let newImg = document.createElement("img");
 newImg.setAttribute("src", post.image);
 newImg.setAttribute("alt", post.title);
 postHeroImg.appendChild(newImg);
-// -------------------------------------------------------------
-// TODO 5 — RENDER THE FULL ARTICLE
-// Build and inject the post content into #post-content.
-//
-// The structure to produce:
-//
-//   <span class="tag">category</span>
-//   <h1>title</h1>
-//   <div class="post-meta">
-//     <span>author</span>
-//     <span>date</span>
-//   </div>
-//   <p>paragraph one</p>
-//   <p>paragraph two</p>
-//   ...
-//
-// post.body is an array of paragraph strings.
-// Turn it into <p> tags with:
-//   post.body.map((paragraph) => `<p>${paragraph}</p>`).join("")
-// -------------------------------------------------------------
 
-// TODO: article content
+// Insert post contents
+postContent.innerHTML = `
+<span class="tag">${post.category}</span>
+<h1>${post.title}</h1>
+<div class="post-meta">
+    <span>${post.date}</span>
+</div>
+${post.body.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+`;
 
 // -------------------------------------------------------------
 // TODO 6 — UPDATE THE BROWSER TAB TITLE
