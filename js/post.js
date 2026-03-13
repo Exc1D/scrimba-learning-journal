@@ -39,7 +39,7 @@ ${post.body.map((paragraph) => `<p>${paragraph}</p>`).join("")}
 // -------------------------------------------------------------
 
 // TODO: document.title = ...
-
+document.title = `${post.title}`;
 // -------------------------------------------------------------
 // TODO 7 (STRETCH) — RENDER "MORE POSTS"
 // Show up to 3 other posts at the bottom of the page.

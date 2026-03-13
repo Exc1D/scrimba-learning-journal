@@ -68,7 +68,7 @@ const posts = [
   },
   {
     slug: "traded-my-rifle-for-a-keyboard",
-    title: "₣rom a Soldier to a Software Developer",
+    title: "From a Soldier to a Software Developer",
     category: "Life",
     date: "February 1, 2026",
     image: "assets/images/soldiers-marching.jpg",
