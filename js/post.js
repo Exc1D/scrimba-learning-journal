@@ -1,7 +1,5 @@
 // =============================================================
 // post.js — Single Post Page JavaScript
-// PRACTICE FILE — implement each TODO to rebuild the functionality.
-// data.js is loaded before this script in post.html, so `posts` is available.
 // =============================================================
 
 const postContent = document.getElementById("post-content");
@@ -32,13 +30,7 @@ postContent.innerHTML = `
 ${post.body.map((paragraph) => `<p>${paragraph}</p>`).join("")}
 `;
 
-// -------------------------------------------------------------
-// TODO 6 — UPDATE THE BROWSER TAB TITLE
-// Set document.title so the browser tab shows the post name
-// instead of the generic page title.
-// -------------------------------------------------------------
-
-// TODO: document.title = ...
+// Add document title
 document.title = `${post.title}`;
 // -------------------------------------------------------------
 // TODO 7 (STRETCH) — RENDER "MORE POSTS"
@@ -54,8 +46,22 @@ document.title = `${post.title}`;
 // -------------------------------------------------------------
 
 // TODO: renderCard function (copy or write fresh)
-
-// TODO: more posts grid
+function renderCard(post) {
+  return `<article class="post-card">
+    <img src="${post.image}" alt="${post.title}" />
+    <div class="card-body">
+      <span class="tag">${post.category}</span>
+      <h3><a href="post.html?slug=${post.slug}">${post.title}</a></h3>
+      <p class="excerpt">${post.excerpt}</p>
+      <div class="card-meta">
+        <span>${post.date}</span>
+      </div>
+    </div>
+  </article>`;
+}
+const morePostsGrid = document.getElementById("more-posts-grid");
+const morePosts = posts.filter((p) => p.slug !== slug).slice(0, 3);
+morePostsGrid.innerHTML = morePosts.map(renderCard).join("");
 
 // -------------------------------------------------------------
 // TODO 8 (STRETCH) — LIKE BUTTON WITH LOCALSTORAGE
